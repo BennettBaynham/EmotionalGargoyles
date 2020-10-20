@@ -1,0 +1,36 @@
+body {
+  background: url("https://i.pinimg.com/originals/d1/b3/65/d1b3657e0d1fc8dc2d98548a7a946f35.jpg")
+    no-repeat center fixed;
+      background-size: cover;
+}
+.boxed {
+    border: 1px solid #cee1ff ;
+}
+.wrapper {
+    font-family: courier;
+    border: 5px solid #4899ad;
+    border-radius: 5px;
+    margin: 10;
+    padding: 10px 20;
+    background-color: #4899ad;
+    width: 300px;
+}
+iframe {
+    font-family: courier;
+    border: 5px solid #4899ad;
+    border-radius: 5px;
+    margin: 10;
+    padding: 10px 20;
+    background-color: #4899ad;
+    width: 500px;
+}
+h1 {
+    font-family: courier;
+    border: 5px solid #4899ad;
+    border-radius: 5px;
+    margin: 10;
+    padding: 10px 20;
+    background-color: #4899ad;
+    width: 200px;
+}
+font-style: normal
