@@ -19,7 +19,7 @@
     <A HREF="fine_line.php">Fine Line</A><br>
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <A HREF="lessons">Lessons</A><br>
+    <A HREF="basicLessons.html">Lessons</A><br>
     <A HREF="login_page">Logout</A>
     </h3>
 
