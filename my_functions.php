@@ -7,7 +7,7 @@
         switch($_POST['m']){
             case 'login':
                 if(check_login()===1){
-                   header("Location: gameSelection.php");
+                   header("Location: menu.php");
                 }else{
                     echo "Cannot login";
                     header("refresh:5; url=login.php");
