@@ -8,14 +8,6 @@
         background-color: #99DBD6;
     }
     </style>
-    <style type ="text/css" >
-        .footer{ 
-            position: fixed;     
-            text-align: center;    
-            bottom: 0px; 
-            width: 100%;
-        }  
-    </style>
 </head>
 <body>  
     <h2>What would you like to play?</h2>
