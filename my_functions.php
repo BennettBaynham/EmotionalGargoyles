@@ -7,7 +7,7 @@
         switch($_POST['m']){
             case 'login':
                 if(check_login()===1){
-                   header("Location: menu.php");
+                   header("Location: menu_redirector.php");
                 }else{
                     echo "Cannot login";
                     header("refresh:5; url=login.php");
@@ -67,3 +67,8 @@
             return 0;
         }
     }
+
+    function redirect(){
+        
+    }
+?> 
