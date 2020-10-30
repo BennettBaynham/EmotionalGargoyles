@@ -7,7 +7,7 @@
         switch($_POST['m']){
             case 'login':
                 if(check_login()===1){
-                   header("Location: menu.php");
+                   header("Location: menu_redirector.php");
                 }else{
                     echo "Cannot login";
                     header("refresh:5; url=login.php");
@@ -67,3 +67,18 @@
             return 0;
         }
     }
+
+    /**Between login and game menu: function checks user type and sends user to
+     * appropriate menu.**/
+    function redirect($user_type){
+        if($user_type == 3){
+            header("Location: menus/admin_menu.html");
+        }
+        elseif($user_type == 2){
+            header("Location: menus/teacher_menu.html");
+        }
+        else{//default to student menu to prevent accidental teacher/admin access
+            header("Location: menus/student_menu.html");
+        }
+    }
+?> 
