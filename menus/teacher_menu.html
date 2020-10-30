@@ -1,60 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!--This file makes the menu for teachers-->
+
+<!--Links to a file with format features common to all game menus-->
+<link rel="stylesheet" href="menu_overlap.css">
+
 <head>
-    <ul>
-        
+    <ul><!--Website navigation bar at the top of the page-->
          <li><a href="#home">Home</a></li>
-         <li><a class = "active" href="menu.php">Games Menu</a></li>
-         <li style="float:right"><a href="logout.html">Log Out</a></li>
-         <li style="float:right"><a href="userinfo.html">Profile</a></li> 
-         <li style="float:left"><a href="basicLessons.html">Basic Lessons</a></li>
+         <li><a class = "active" href="../menu_redirector.php">Games Menu</a></li>
+         <li style="float:right"><a href="../logout.html">Log Out</a></li>
+         <li style="float:right"><a href="../userinfo.html">Profile</a></li> 
+         <li style="float:left"><a href="../basicLessons.html">Basic Lessons</a></li>
     </ul>
-
-    <style>
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #b1efff;
-    }
-    
-    li {
-        float: left;
-    }
-    
-    li a {
-        display: block;
-        color: black;
-        text-align: center;
-        padding: 18px 20px;
-        text-decoration: none;
-    }
-    
-    li a:hover:not(.active) {
-        background-color: #4899ad;
-    }
-    
-    .active {
-        background-color: #4899ad;
-    }
-    </style>
-
-
-<h1>Welcome!</h1>
-    <hr>
-    <style>
-    body {
-        background-color: #99DBD6;
-    }
-    </style>
 </head>
-<body>  
-    <h2>What would you like to play?</h2>
-    <h3>
-    <A HREF="games/crazy_cars.php">Crazy Cars</A><br>
-    <A HREF="games/whack_a_mole.php">Whack-A-Mole</A><br>
-    <A HREF="games/change_it_up.php">Change It Up</A><br>
-    <A HREF="games/block_builder.php">Block Builder</A><br>
-    <A HREF="games/fine_line.php">Fine Line</A><br>
+
+<!--Menu title and text-->
+<center>
+<body> 
+    <style>
+        a{
+
+        }
+    </style> 
+    <h1 class="titleBorder"> Welcome!</h1><br>
+    <h2 class="textBorder">
+        What would you like to do? <br><br>
+        
+        Play...<br>
+        <a href="../games/crazy_cars.php" style="text-decoration: none;">Crazy Cars</a><br>
+        <a href="../games/whack_a_mole.php" style="text-decoration: none;">Whack-A-Mole</a><br>
+        <a href="../games/change_it_up.php" style="text-decoration: none;">Change It Up</a><br>
+        <a href="../games/block_builder.php" style="text-decoration: none;">Block Builder</a><br>
+        <a href="../games/fine_line.php" style="text-decoration: none;">Fine Line</a><br><br>
+    
+        Other...<br>
+        <a href="../student_list.html" style="text-decoration: none;">View Student List</a><br>       
+        <a href="../problems_page.html" style="text-decoration: none;">Add Problems</a><br>
+    </h2>
 </body>
+</center>

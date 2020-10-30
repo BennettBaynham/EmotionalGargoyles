@@ -68,7 +68,17 @@
         }
     }
 
-    function redirect(){
-        
+    /**Between login and game menu: function checks user type and sends user to
+     * appropriate menu.**/
+    function redirect($user_type){
+        if($user_type == 3){
+            header("Location: menus/admin_menu.html");
+        }
+        elseif($user_type == 2){
+            header("Location: menus/teacher_menu.html");
+        }
+        else{//default to student menu to prevent accidental teacher/admin access
+            header("Location: menus/student_menu.html");
+        }
     }
 ?> 
