@@ -1,0 +1,16 @@
+The Plan for this I guess??
+
+
+So I had the idea that this could be some sort of pirate game, where the number tells you where the x is, and you have to walk the pirate over to find it. Using the arrow keys wouldn't be to hard as controls or we could use the mouse. Maybe the mouse is better. Anyways we scroll to the right spot where the treasure is hidden then there's like 3 frames of digging then treasure. Then you can just do it again??? The X is at a random number between 1 and 20, and 1 and 100 for more advanced kids??
+
+Files in this game:
+  	-index.html 
+		for the starting stuff part of it. and the getting user info part of it
+	-numberline.js
+		for the game part of it. 
+	-images folder
+		images used
+	-sounds folder
+		sounds used
+	-this document
+		temporary and just maps out my plan and stuff????????
