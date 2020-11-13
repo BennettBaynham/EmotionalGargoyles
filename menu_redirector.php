@@ -7,6 +7,9 @@
 include_once 'my_functions.php';
 
 //FOR NOW THIS JUST SENDS USER TO ADMIN MENU
-$user_type = 3;
-redirect($user_type);
+// my_session_start();
+// if(isset($_SESSION['user_type'])){
+    $user_type = 3;
+    redirect($user_type);
+// }
 ?>

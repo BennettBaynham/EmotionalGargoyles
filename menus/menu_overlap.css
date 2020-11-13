@@ -1,4 +1,4 @@
-/*This file contains standard format features of all three game menus*/
+/*This file contains standard format features of all three main menus*/
 
 ul {
     list-style-type: none;
@@ -28,14 +28,20 @@ li a:hover:not(.active) {
    background-color: #4899ad;
 }
 
-/*Color for menu background*/
+h2 a{
+   color: rgba(221, 145, 5, 0.945);
+}
+
+-/*image for menu background*/
 body {
+   background-image: image-set("menu_image.png");
    background-color: #2591bb;
 }
 
 /*Borders for title section on game menu pages*/
 .titleBorder{
     border-style: solid;
+    border-radius: 10px;
     background-color: #b1efff;
     width: fit-content;
     height: fit-content;
@@ -48,6 +54,7 @@ body {
 /*Borders for the text and game options on the main menu*/
 .textBorder{
     border-style: solid;
+    border-radius: 10px;
     background-color: #b1efff;
     width: fit-content;
     height: fit-content;
