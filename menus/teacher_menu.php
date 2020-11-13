@@ -10,15 +10,28 @@
     <ul><!--Website navigation bar at the top of the page-->
          <li><a href="#home">Home</a></li>
          <li><a class = "active" href="../menu_redirector.php">Games Menu</a></li>
-         <li style="float:right"><a href="../logout.html">Log Out</a></li>
+         <li style="float:right"><a href="../login.php">Log Out</a></li>
          <li style="float:right"><a href="../userinfo.html">Profile</a></li> 
          <li style="float:left"><a href="../basicLessons.html">Basic Lessons</a></li>
     </ul>
 </head>
 
+<?php       //Block to make sure there is a user logged in
+    include_once "../my_functions.php";
+		my_session_start();
+		if(!isset($_SESSION['u_name'])){
+			header("Location: ../login.php");
+        }
+?>
+
 <!--Menu title and text-->
 <center>
-<body background="menu_image.png"> 
+<body> 
+    <style>
+        a{
+
+        }
+    </style> 
     <h1 class="titleBorder"> Welcome!</h1><br>
     <h2 class="textBorder">
         What would you like to do? <br><br>
@@ -28,7 +41,7 @@
         <a href="../games/whack_a_mole.php" style="text-decoration: none;">Whack-A-Mole</a><br>
         <a href="../games/change_it_up.php" style="text-decoration: none;">Change It Up</a><br>
         <a href="../games/block_builder.php" style="text-decoration: none;">Block Builder</a><br>
-        <a href="../NumberLine/index.html" style="text-decoration: none;">Fine Line</a><br><br>
+        <a href="../games/fine_line.php" style="text-decoration: none;">Fine Line</a><br><br>
     
         Other...<br>
         <a href="../student_list.html" style="text-decoration: none;">View Student List</a><br>       

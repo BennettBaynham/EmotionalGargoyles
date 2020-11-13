@@ -6,11 +6,21 @@
     <title>Login</title>
 </head>
 <body>
-   <!-- get and post -->
+    <?php
+
+		if(session_status() !== PHP_SESSION_ACTIVE){
+			session_start();
+		}
+		if(isset($_SESSION['u_name'])){
+			unset($_SESSION['u_name']);
+		}
+	?>
+
+
    <form action="my_functions.php" method="post">
        username: <input type="text" name="u"><br><br>
        password: <input type="password" name="pw">
-       <input type="hidden" name="m" value="login">
+       <input type="hidden" name="task" value="login">
        <button type="submit">Login</button>
    </form>
 </body>

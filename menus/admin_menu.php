@@ -11,7 +11,7 @@
          <li><a href="#home">Home</a></li>
          <li><a class = "active" href="../menu_redirector.php">Games Menu</a></li>
          <li style="float:left"><a href="../basicLessons.html">Basic Lessons</a></li>
-         <li style="float:right"><a href="../logout.html">Log Out</a></li>
+         <li style="float:right"><a href="../login.php">Log Out</a></li>
          <li style="float:right"><a href="../userinfo.html">Profile</a></li> 
     </ul>
 </head>
@@ -19,6 +19,15 @@
 <!--Menu title and text-->
 <center>
 <body background="menu_image.png">  
+
+    <?php       //Block to make sure there is a user logged in
+    include_once "../my_functions.php";
+		my_session_start();
+		if(!isset($_SESSION['u_name'])){
+			header("Location:../login.php");
+        }
+    ?>
+
     <h1 class="titleBorder"> Welcome!</h1><br>
     <h2 class="textBorder">
         What would you like to do? <br><br>

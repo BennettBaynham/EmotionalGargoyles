@@ -3,13 +3,14 @@
 
 <!--This file will check the user type and send them to the appropriate menu.
     Anything that would direct a user to the menu should link to this file instead.-->
-<?php
-include_once 'my_functions.php';
+<?php      //Block to make sure there is a user logged in
+include_once "my_functions.php";
+    my_session_start();
+    if(!isset($_SESSION['u_name'])){
+        header("Location:login.php");
+    }
 
 //FOR NOW THIS JUST SENDS USER TO ADMIN MENU
-// my_session_start();
-// if(isset($_SESSION['user_type'])){
-    $user_type = 3;
-    redirect($user_type);
-// }
+$user_type = 3;
+redirect($user_type);
 ?>
