@@ -7,7 +7,7 @@ var ctx = canvas.getContext("2d");
 /**
 
 //Load Imgaes
-var pirateImage = new Image();
+var wavesImage = new Image();
 pirateImage.src = "images/pirateImage.png";
 
 load and use sounds:
@@ -20,23 +20,23 @@ scor.src = "sounds/score.mp3";
 
 */
 
+var wavesImage = new Image();
+wavesImage.src = "images/wavesTemp.png";
+
+var mapImage = new Image();
+mapImage.src = "images/blankMap.png";
+
 var currentNumber = 0;
 var maxNumber = 25;
 var minNumber = 0;
 var targetNumber = Math.round(minNumber + ((maxNumber - minNumber) * Math.random()));
 var treasureFound = false;
-
-function myfunction() {
-	console.log("This is a working button");
-  }
-
-
 //detecting arrow key presses
 document.addEventListener('keydown', function(e) {
 	switch (e.keyCode) {
 		case 32:
 			//alert('left');
-	
+			space();
 			break;
 		case 37:
 			//alert('left');
@@ -53,10 +53,6 @@ document.addEventListener('keydown', function(e) {
 			break;
 		case 40:
 			moveDown();
-			//alert('down');
-			break;
-		case 32:
-			treasureFound();
 			//alert('down');
 			break;
 	}
@@ -76,28 +72,32 @@ function moveUp(){
 function moveDown(){
 	draw();
 }
-
+function space(){
+	if(Math.round(currentNumber) == Math.round(targetNumber)){
+		treasureFound = true;
+	}else{
+		alert('No Treasure, sorry');
+	}
+	draw();
+}
 function draw(){
 	ctx.textAlign = 'center';
 	drawBackground();
 	drawMap();
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	//ctx.drawImage(bg,0,0); // draws background
 
 	//ctx.drawImage(fg,0,cvs.height - fg.height); // draws foreground
 	
 	//ctx.drawImage(pirate,bX,bY);
 	drawIslands();
+	drawMidWaves();
 	drawBoat();
-	//requestAnimationFrame(draw);
-	//win();
+	//requestAnimationFrame(draw());
+	if(treasureFound){
+		win();
+	}
+	
 }
 function drawBackground() {
 	ctx.fillStyle = '#7FAFFF';
@@ -110,7 +110,7 @@ function drawIslands(){
 			ctx.fillStyle = '#FFFF00';
 			ctx.fillRect((300 *  (Math.round(currentNumber) - currentNumber)) + (1770 - (300 * i)), 300,150,110);
 			ctx.fillStyle = '#000000';
-			ctx.fillText(Math.round(currentNumber + 5 - i), 75 + (300 * (Math.round(currentNumber) - currentNumber)) + (1770 - (300 * i)), 395);
+			ctx.fillText(Math.round(currentNumber + 5 - i), 75 + (300 * (Math.round(currentNumber) - currentNumber)) + (1770 - (300 * i)), 335);
 		}
 	}
 }
@@ -122,9 +122,10 @@ function drawBoat(){
 	ctx.fillText("Boat", 372, 424);
 }
 function drawMap(){
+	ctx.drawImage(mapImage,612,0);
 	ctx.fillStyle = '#000000';
 	ctx.font = "30px Arial";
-	ctx.fillText(Math.round(targetNumber), 700, 50);
+	ctx.fillText(Math.round(targetNumber), 700, 75);
 	//ctx.fillText(currentNumber, 690, 50);
 }
 function win(){
@@ -134,10 +135,17 @@ function win(){
 	ctx.fillText('You Found the Treasure!!!', 700, 300);
 }
 function reset(){
-	var currentNumber = 0;
-	var maxNumber = 25;
-	var minNumber = 0;
-	var targetNumber = Math.round(minNumber + ((maxNumber - minNumber) * Math.random()));
-	var treasureFound = false;
+	currentNumber = 0;
+	maxNumber = 25;
+	minNumber = 0;
+	targetNumber = Math.round(minNumber + ((maxNumber - minNumber) * Math.random()));
+	treasureFound = false;
+	draw();
+}
+function drawMidWaves(){
+	var i;
+	for(i=0;i < 17; i++){
+		ctx.drawImage(wavesImage, (142 * i - 284) + (426 * (Math.round(currentNumber) - currentNumber)),355);
+	}
 }
 draw();
