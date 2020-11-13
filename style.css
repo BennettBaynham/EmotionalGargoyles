@@ -1,0 +1,69 @@
+/*This file contains standard format features of all three game menus*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #b1efff;
+}
+
+li {
+   float: left;
+}
+
+li a {
+   display: block;
+   color: black;
+   text-align: center;
+   padding: 18px 20px;
+   text-decoration: none;
+}
+
+li a:hover:not(.active) {
+   background-color: #4899ad;
+}
+
+.active {
+   background-color: #4899ad;
+}
+
+/*Color for menu background*/
+body {
+   background-color: #2591bb;
+}
+
+/*Borders for title section on game menu pages*/
+.titleBorder{
+    border-style: solid;
+    background-color: #b1efff;
+    width: fit-content;
+    height: fit-content;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+/*Borders for the text and game options on the main menu*/
+.gameBorder{
+    border-style: solid;
+    background-color: #b1efff;
+    width: fit-content;
+    height: fit-content;
+    padding-top: 10px;
+    padding-right: 7px;
+    padding-bottom: 15px;
+    padding-left: 7px;
+}
+
+.answerBorder{
+   border-style: solid;
+   background-color: #b1efff;
+   width: fit-content;
+   height: fit-content;
+   padding-top: 10px;
+   padding-right: 7px;
+   padding-bottom: 15px;
+   padding-left: 7px;
+}
