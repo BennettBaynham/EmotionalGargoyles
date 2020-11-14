@@ -27,7 +27,7 @@ var mapImage = new Image();
 mapImage.src = "images/blankMap.png";
 
 var currentNumber = 0;
-var maxNumber = 25;
+var maxNumber = 12;
 var minNumber = 0;
 var targetNumber = Math.round(minNumber + ((maxNumber - minNumber) * Math.random()));
 var treasureFound = false;
@@ -59,11 +59,11 @@ document.addEventListener('keydown', function(e) {
 });
 
 function moveLeft(){
-	currentNumber -= 0.1;
+	currentNumber -= 0.05;
 	draw();
 }
 function moveRight(){
-	currentNumber += 0.1;
+	currentNumber += 0.05;
 	draw();
 }
 function moveUp(){
@@ -136,7 +136,7 @@ function win(){
 }
 function reset(){
 	currentNumber = 0;
-	maxNumber = 25;
+	maxNumber = 12;
 	minNumber = 0;
 	targetNumber = Math.round(minNumber + ((maxNumber - minNumber) * Math.random()));
 	treasureFound = false;
