@@ -1,23 +1,21 @@
 <?php
 
-
-    
-
-    if(isset($_POST['m'])){
-        switch($_POST['m']){
+    if(isset($_POST['task'])){
+        switch($_POST['task']){
             case 'login':
                 if(check_login()===1){
-                   header("Location: menu_redirector.php");
+                    if(session_status() !==PHP_SESSION_ACTIVE){
+                        session_start();
+                    }
+                    $_SESSION['u_name'] = $_POST['u'];
+                    header("Location: menu_redirector.php");
                 }else{
                     echo "Cannot login";
-                    header("refresh:5; url=login.php");
+                    header("refresh:3; url=login.php");
                 }
-                break;
+                break;       
         }
     }
-
-
-
     function check_login(){
         $users= array(
             'hope' => array( 
@@ -75,10 +73,16 @@
             header("Location: menus/admin_menu.html");
         }
         elseif($user_type == 2){
-            header("Location: menus/teacher_menu.html");
+            header("Location: menus/teacher_menu.php");
         }
         else{//default to student menu to prevent accidental teacher/admin access
-            header("Location: menus/student_menu.html");
+            header("Location: menus/student_menu.php");
         }
     }
+
+   function my_session_start(){
+        if(session_status()!==PHP_SESSION_ACTIVE){
+            session_start();
+        }
+   }
 ?> 

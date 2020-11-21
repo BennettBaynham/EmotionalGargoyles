@@ -1,18 +1,20 @@
 /*This file contains standard format features of all three main menus*/
 
-ul {
+/* id for ul in menu bar */
+#bar {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #b1efff;
+    box-shadow: 5px 5px 4px gray;
 }
 
-li {
+#bar li {
    float: left;
 }
 
-li a {
+#bar li a {
    display: block;
    color: black;
    text-align: center;
@@ -20,22 +22,50 @@ li a {
    text-decoration: none;
 }
 
-li a:hover:not(.active) {
+#bar li a:hover:not(.active) {
    background-color: #4899ad;
 }
 
+/* sets background color for menu bar options when active */
 .active {
    background-color: #4899ad;
 }
 
-h2 a{
-   color: rgba(221, 145, 5, 0.945);
+/* id for ul for menu options on game menu */
+#games{
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   background-color: #b1efff;
 }
 
--/*image for menu background*/
-body {
-   background-image: image-set("menu_image.png");
-   background-color: #2591bb;
+/* sets background color for menu options when active */
+.active2{
+   background-color: darkorange;
+}
+
+/* style for links in main menu options area */
+#games li a{
+   color: darkorange;
+   text-decoration: none;
+   padding: 3px;
+   border-radius: 10px;
+}
+
+#games li{
+   padding: 3px;
+}
+
+/* Change text background and text color when mouse hovers over it */
+#games li a:hover:not(.active) {
+   background-color: darkorange;
+   color: white;
+}
+
+/* Set background color in case anything comes up with the image */
+body{
+   background-color: rgb(194, 253, 194);
 }
 
 /*Borders for title section on game menu pages*/
@@ -49,6 +79,7 @@ body {
     padding-right: 10px;
     padding-bottom: 5px;
     padding-left: 10px;
+    box-shadow: 5px 5px 4px gray;
 }
 
 /*Borders for the text and game options on the main menu*/
@@ -62,4 +93,5 @@ body {
     padding-right: 7px;
     padding-bottom: 15px;
     padding-left: 7px;
+    box-shadow: 8px 8px 6px gray;
 }

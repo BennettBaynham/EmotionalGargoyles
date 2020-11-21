@@ -7,27 +7,37 @@
 <link rel="stylesheet" href="menu_overlap.css">
 
 <head>
-    <ul><!--Website navigation bar at the top of the page-->
-         <li><a href="#home">Home</a></li>
-         <li><a class = "active" href="../menu_redirector.php">Games Menu</a></li>
-         <li style="float:right"><a href="../logout.html">Log Out</a></li>
+    <ul id="bar"><!--Website navigation bar at the top of the page-->
+        <li><a href="../menu_redirector.php" class="active">Home</a></li>
+         <li style="float:right"><a href="../login.php">Log Out</a></li>
          <li style="float:right"><a href="../userinfo.html">Profile</a></li> 
          <li style="float:left"><a href="../basicLessons.html">Basic Lessons</a></li>
     </ul>
 </head>
 
+<?php       //Block to make sure there is a user logged in
+    include_once "../my_functions.php";
+		my_session_start();
+		if(!isset($_SESSION['u_name'])){
+			header("Location: ../login.php");
+        }
+?>
+
+
 <!--Menu title and text-->
 <center>
-<body background="menu_image.png"> 
+<body background="menu_image.png">    
     <h1 class="titleBorder"> Welcome!</h1><br>
     <h2 class="textBorder">
         What would you like to play? <br><br>
     
-        <a href="../games/crazy_cars.php" style="text-decoration: none;">Crazy Cars</a><br>
-        <a href="../games/whack_a_mole.php" style="text-decoration: none;">Whack-A-Mole</a><br>
-        <a href="../games/change_it_up.php" style="text-decoration: none;">Change It Up</a><br>
-        <a href="../games/block_builder.php" style="text-decoration: none;">Block Builder</a><br>
-        <a href="../NumberLine/index.html" style="text-decoration: none;">Fine Line</a><br>
+        <ul id="games">
+            <li><a href="../games/crazy_cars.php">Crazy Cars</a></li>
+            <li><a href="../games/whack_a_mole.php">Whack-A-Mole</a></li>
+            <li><a href="../games/change_it_up.php">Change It Up</a></li>
+            <li><a href="../games/block_builder.php">Block Builder</a></li>
+            <li><a href="../NumberLine/index.html">Fine Line</a></li><br>
+        </ul>
     </h2>
 </body>
 </center>

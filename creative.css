@@ -7,7 +7,7 @@ body {
     border: 1px solid #cee1ff ;
 }
 .wrapper {
-    font-family: courier;
+    font: 20px "Lato", sans-serif;
     border: 5px solid #4899ad;
     border-radius: 5px;
     margin: 10;
@@ -16,7 +16,7 @@ body {
     width: 300px;
 }
 iframe {
-    font-family: courier;
+    font: 20px "Lato", sans-serif;
     border: 5px solid #4899ad;
     border-radius: 5px;
     margin: 10;
@@ -25,12 +25,86 @@ iframe {
     width: 500px;
 }
 h1 {
-    font-family: courier;
+    font: 40px "Lato", sans-serif;
     border: 5px solid #4899ad;
     border-radius: 5px;
     margin: 10;
     padding: 10px 20;
-    background-color: #4899ad;
     width: 200px;
+    background-color: #4899ad;
 }
-font-style: normal
+h3 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 25px "Lato", sans-serif;
+    color: #8e8e8e;
+}
+p {
+    font: 15px "Lato", sans-serif;
+}
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #dddd;
+}
+.caption span.border {
+    background-color: #111;
+    color: #a5a5a5;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+.bgimg-4 {
+    background-image: url("sat4.jpg");
+    min-height: 400px;
+}
+.b {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 500px;
+	box-sizing: content-box;
+	background: transparent;
+    box-shadow: 0 10px 20px rgba(0,0,0,.5);
+    text-align: center;
+    font-size: 10px;
+}
+.glass {
+	width: 100px;
+	height: 100%;
+    padding: 50px;
+    display: inline-block;
+	box-sizing: content-box;
+	background: rgba(255,255,255,.1);
+	border-radius: 20px;
+}
+buttonBox {
+    background: transparent;
+    display: block;
+    box-shadow: 0 10px 20px rgba(0,0,0,.5);
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+a:link {
+    color: black;
+    text-decoration: none;
+}
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+buttons:hover {
+    background: #4899ad;
+}
+html {
+    scroll-behavior: smooth;
+}
