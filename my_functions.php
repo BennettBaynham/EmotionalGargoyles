@@ -70,7 +70,7 @@
      * appropriate menu.**/
     function redirect($user_type){
         if($user_type == 3){
-            header("Location: menus/admin_menu.html");
+            header("Location: menus/admin_menu.php");
         }
         elseif($user_type == 2){
             header("Location: menus/teacher_menu.php");
