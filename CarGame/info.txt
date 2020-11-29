@@ -1,0 +1,6 @@
+This file contains an overview of the car game organization
+
+>The images folder contains images used
+>cars.js contains js code for running the game
+>index.php checks if the user is logged in and sets up the page format, then starts the game
+>stylesheet.css contains the style for index.php (to avoid clutter in index.php)

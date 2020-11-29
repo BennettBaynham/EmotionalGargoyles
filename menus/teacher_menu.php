@@ -32,7 +32,7 @@
         
         Play...<br>
         <ul id="games">
-            <li><a href="../games/crazy_cars.php">Crazy Cars</a></li>
+            <li><a href="../CarGame/index.php">Crazy Cars</a></li>
             <li><a href="../games/whack_a_mole.php">Whack-A-Mole</a></li>
             <li><a href="../games/change_it_up.php">Change It Up</a></li>
             <li><a href="../games/block_builder.php">Block Builder</a></li>

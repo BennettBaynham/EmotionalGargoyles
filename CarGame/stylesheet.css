@@ -1,0 +1,46 @@
+/* Style for the Crazy Cars game */
+
+body {
+    text-align:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ 
+.titleText{
+    border-style: solid;
+    border-radius: 10px;
+    background-color: red;
+    color: yellow;
+    width: fit-content;
+    height: fit-content;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    box-shadow: 5px 5px 4px rgb(87, 87, 87);
+}
+
+
+
+/* style for menu bar */
+
+#bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: red;
+    box-shadow: 5px 5px 4px rgb(87, 87, 87);
+}
+
+#bar li a {
+    display: block;
+    color: yellow;
+    text-align: center;
+    padding: 18px 20px;
+    text-decoration: none;
+ }
+ 
+#bar li a:hover:not(.active) {
+    background-color: darkred;
+}
