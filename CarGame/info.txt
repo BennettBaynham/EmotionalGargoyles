@@ -4,3 +4,9 @@ This file contains an overview of the car game organization
 >cars.js contains js code for running the game
 >index.php checks if the user is logged in and sets up the page format, then starts the game
 >stylesheet.css contains the style for index.php (to avoid clutter in index.php)
+
+>General game function description:
+    A math problem is displayed in the canvas.  The user enters the answer in the text input
+    at the bottom of the page, then clicks the "GO!" button.  If the answer is correct, both
+    the player's car and the cpu car move forward, but the player's car moves farthur.  If
+    answer is incorrect, only the cpu car moves forward.

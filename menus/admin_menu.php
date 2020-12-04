@@ -17,8 +17,7 @@
 
 <!--Menu title and text-->
 <center>
-<body background="menu_image.png">  
-
+<body>
     <?php       //Block to make sure there is a user logged in
     include_once "../my_functions.php";
 		my_session_start();

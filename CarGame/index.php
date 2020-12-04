@@ -19,9 +19,19 @@
   </head>
 
   <body background="images/background.jpg"> 
-	  <center><h2 class="titleText">Crazy Cars</h2></center>
-	 
-	  <canvas id="canvas" width="1000" height="450"></canvas>
-	  <script src="cars.js"></script>
-	</body>
+	  <center>
+      <h2 class="titleText">Crazy Cars</h2>
+    <div id="container">
+      <canvas id="canvas" width="1000" height="400"></canvas>
+      <!-- <div class="titleText" id="difficulty">Choose Your Difficulty<br>
+            <button class="menu">Easy<button>
+      </div> -->
+        <ul>
+          <li class="titleText" id="inputs">Answer: <input type="text" style="width: 50px" id="ans"></li>
+          <li id="inputs"><button class="btn" id="goBtn">GO!</button></li>
+        </ul>
+        <script src="cars.js"></script>
+    </div>
+    </center>
+  </body>
 </html>

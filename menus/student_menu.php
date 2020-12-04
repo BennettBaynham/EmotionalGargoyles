@@ -26,7 +26,7 @@
 
 <!--Menu title and text-->
 <center>
-<body background="menu_image.png">    
+<body>    
     <h1 class="titleBorder"> Welcome!</h1><br>
     <h2 class="textBorder">
         What would you like to play? <br><br>

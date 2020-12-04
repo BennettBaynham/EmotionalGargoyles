@@ -65,7 +65,8 @@
 
 /* Set background color in case anything comes up with the image */
 body{
-   background-color: rgb(194, 253, 194);
+   /* background-color: rgb(194, 253, 194); */
+   background: url("menu_image.png");
 }
 
 /*Borders for title section on game menu pages*/
