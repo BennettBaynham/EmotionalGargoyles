@@ -32,15 +32,72 @@ body {
 }
 
 /* Style for game menus */
+/* entire menu */
 .menu{
-    background-color: blue;
-}
-
-#difficulty{
     position: absolute;
+    background-color: rgb(255, 44, 44);
     left: 50%;
     top: 20px;
     transform: translate(-50%);
+    width: 20%;
+    height: 60%;
+    font-size: 150%;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    color: yellow;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    box-shadow: 8px 8px 6px black;
+}
+
+/* ***DELETE THIS*** */
+/* #difMenu{
+    display: none;
+} */
+
+#endMenu{
+    display: none;
+}
+
+/* buttons in game menus */
+.difMenuBtn{
+    font-size: 100%;
+    padding: 5px 25px;
+    border-radius: 10px;
+}
+
+.difMenuBtn:hover{
+    cursor: pointer;
+}
+
+.endMenuBtn{
+    font-size: 100%;
+    padding: 5px 25px;
+    border-radius: 10px;
+    background-color: rgb(255, 228, 140);
+}
+
+.endMenuBtn:hover{
+    cursor: pointer;
+    background-color: rgb(250, 250, 0);
+}
+
+#ulMenu{
+    padding-inline-start: 0px;
+}
+
+#liMenu{
+    list-style-type: none;
+    display: block;
+    margin-bottom: 25px;
+}
+
+button a{
+    text-decoration: none;
+    color: black;
 }
 
 /* style for user interface (button, input, etc)*/
@@ -76,7 +133,7 @@ ul li input{
     padding: 0;
     overflow: hidden;
     background-color: red;
-    box-shadow: 5px 5px 4px rgb(87, 87, 87);
+    box-shadow: 5px 5px 4px rgb(37, 37, 37);
 }
 
 #bar li a {

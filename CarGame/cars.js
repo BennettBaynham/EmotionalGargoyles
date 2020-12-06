@@ -1,16 +1,25 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
+//variables for game menus
+var difBtnArr = document.getElementsByClassName("difMenuBtn");//stores difficulty buttons
+var difficulty;//used to store/signal selected difficulty (1, 2, or 3)
+
 //general variables
 var backdrop;//stores imageData of background
 var scaler1 = 0.5;//variable used to change blue car speed
 var scaler2 = 0.5;//variable used to change orange car speed
+var playerWon = false;//true when the user crosses the finish line
+var cpuWon = false;//true when the cpu crosses the finish line
 
 //variables to store math problem componenents
 var num1; 
 var num2;
+var maxNum;//maximum number, determined by difficulty selection
+var minNum;//minimum number, determined by difficulty selection
 var realAnswer;//correct answer to math problem
-// var userAnswer;//user input
+var numCorrect = 0;//tracks the number of problems answered correctly
+var numTotal = 0;//how many problems were answered total in a game
 
 //vars for images used
 var grass = new Image();
@@ -37,12 +46,11 @@ var probHeight = 100;//height of the box for math problem
 var probBorder = 3;//border width for math problem box
 var yprob = ((ycenter - (lineHeight/2))/2) - (probHeight/2)
 //results dimensions
-var correctWidth = 300;//'correct' variables determine dimensions of display for a correct answer
-var correctHeight = 100;
-var correctBorder = 3;
-var correcty = ((canvas.height + ((lineHeight/2) + ycenter))/2) - (correctHeight/2)
-//eraseResults stores the imageData of the space behind the results display area
-var storeResults;
+var correctWidth = 300;//called correct, but also ended up being used for incorrect results
+var correctHeight = 100;//^^
+var correctBorder = 3;//^^
+var correcty = ((canvas.height + ((lineHeight/2) + ycenter))/2) - (correctHeight/2)//^^
+var storeResults;//stores imageData for results 
 
 //car data
 var playerIndex = 2;//position of player's car
@@ -61,7 +69,68 @@ var cpuMoveTo = Math.floor(cpuIndex + (distance/8));//the next target destinatio
  */
 function main(){
     drawBackgroundInit();
-    document.getElementById("goBtn").addEventListener("click", getUserAnswer);
+    selectDifficulty();
+    // document.getElementById("goBtn").addEventListener("click", getUserAnswer);
+}
+
+/**
+ * Creates eventListeners for each difficulty button
+ */
+function selectDifficulty(){
+    difBtnArr[0].addEventListener("click", function(){
+        difficulty = 1;//set easy difficulty (numbers are 1-10)
+        startGame();
+    });
+    difBtnArr[1].addEventListener("click", function(){
+        difficulty = 2;//set medium difficulty (numbers are 1-25)
+        startGame();
+    });
+    difBtnArr[2].addEventListener("click", function(){
+        difficulty = 3;//set hard difficulty (numbers can be any two-digit number)
+        startGame();
+    })
+}
+
+/**
+ * Functionality between clicking difficulty button and game starting
+ */
+function startGame(){
+    document.getElementById("difMenu").style.display = "none";
+    switch(difficulty){
+        case 1://easy (1-10 only)
+            maxNum = 10;
+            minNum = 1;
+            break;
+        
+        case 2://medium (1-25)
+            maxNum = 25;
+            minNum = 1;
+            break;
+
+        case 3://hard (any two-digit numbers)
+            maxNum = 99;
+            minNum = 10;
+            break;
+    }
+    drawReady();
+    // drawProblem();
+    // document.getElementById("goBtn").addEventListener("click", getUserAnswer);
+}
+
+/**
+ * Prepares and opens the end of game menu
+ */
+function endGame(){
+    //stop go button function
+    document.getElementById("goBtn").removeEventListener("click", getUserAnswer);
+    //fix text to reflect number of problems correct/completed
+    document.getElementById("amountRight").innerHTML =  numCorrect+" out of "+numTotal+" correct";
+    //show menu
+    document.getElementById("endMenu").style.display = "unset";
+    //if user selects "play again", reload the page
+    document.getElementById("replay").addEventListener("click", function(){
+        document.location.reload();
+    })
 }
 
 /**
@@ -95,7 +164,6 @@ function drawBackgroundInit() {
             ctx.drawImage(finishLine, 70, ycenter-(lineHeight/2), lineWidth, lineHeight);//starting line
             ctx.drawImage(finishLine, canvas.width-(70+lineWidth), ycenter-(lineHeight/2), lineWidth, lineHeight);//finish line
             
-            drawProblem();
             //store background in 'backdrop' before drawing cars
             backdrop = ctx.getImageData(0, 0, canvas.width, canvas.height)
             drawCars();
@@ -122,8 +190,10 @@ function drawCars(){
  * draws the math problem onto the canvas
  */
 function drawProblem(){
-    num1 = Math.round(Math.random()*25);
-    num2 = Math.round(Math.random()*25);
+    //create pseudorandom integers between minNum and maxNum
+    num1 = Math.round(Math.random()*(maxNum-minNum) + minNum);
+    num2 = Math.round(Math.random()*(maxNum-minNum) + minNum);
+
     realAnswer = num1 + num2;
     ctx.fillStyle = "#FF0000";
     ctx.fillRect(xcenter-(probWidth/2), yprob, probWidth, probHeight)//border
@@ -136,6 +206,40 @@ function drawProblem(){
    
     //store current math problem to display
     tempProblem = ctx.getImageData(xcenter-(probWidth/2), yprob, probWidth, probHeight);
+}
+
+/**
+ * Display "Ready? Set... GO!" at beginning of game
+ */
+function drawReady(){
+    //draw background for text
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(xcenter-(probWidth/2), yprob, probWidth, probHeight)//border
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect(xcenter-(probWidth/2)+probBorder, yprob + probBorder, probWidth-(2*probBorder), probHeight-(2*probBorder));
+    //store blank background
+    var temp = ctx.getImageData(xcenter-(probWidth/2), yprob, probWidth, probHeight);
+    
+    //display ready for 1 second
+    ctx.fillStyle = "#FF0000";
+    ctx.font = "50px Comic Sans MS";
+    ctx.textAlign = "center";
+    ctx.fillText("Ready?", xcenter, yprob+probBorder+(probHeight*0.7), 0.75*probWidth)
+
+    setTimeout(function(){
+        ctx.putImageData(temp, xcenter-(probWidth/2), yprob);
+        ctx.fillStyle = "#CDC82D"
+        ctx.fillText("Set...", xcenter, yprob+probBorder+(probHeight*0.7), 0.75*probWidth);
+    }, 1000);
+    setTimeout(function(){
+        ctx.putImageData(temp, xcenter-(probWidth/2), yprob);
+        ctx.fillStyle = "#00FF00"
+        ctx.fillText("GO!", xcenter, yprob+probBorder+(probHeight*0.7), 0.75*probWidth);
+    }, 2000);
+    setTimeout(function(){
+        drawProblem();
+        document.getElementById("goBtn").addEventListener("click", getUserAnswer);
+    }, 3000);
 }
 
 /**
@@ -178,11 +282,11 @@ function drawIncorrect(){
 function movePlayer(){
     if(playerIndex < playerMoveTo){
         playerIndex += scaler1;
-        if((playerIndex - oldPlayerIndex) < (playerMoveTo - oldPlayerIndex)/2){//speed up for first half, slow down for second half
+        if((playerIndex - oldPlayerIndex) < (playerMoveTo - oldPlayerIndex)/2){//speed up for first half 
             console.log("added " + scaler1 + " to playerIndex (speeding up)")
             scaler1 += 0.25;
         }
-        else{
+        else{//slow down for second half
             console.log("added " + scaler1 + " to playerIndex (slowing down)")
             scaler1 -= 0.25;
         }
@@ -191,14 +295,15 @@ function movePlayer(){
         drawCars();
         window.requestAnimationFrame(movePlayer);
     }
-    else{
+    else{//after animation is complete
         playerMoveTo += Math.floor(distance/5);
         scaler1 = 0.5;
         console.log("scaler1 reset")
         console.log("playerMoveTo += distance/5")
-        if(playerIndex >= canvas.width-(70+lineWidth+(carWidth/2))){//Player victory
-            alert("YOU WIN!")
-            document.getElementById("goBtn").removeEventListener("click", getUserAnswer);
+        numCorrect++;
+        console.log(numCorrect);
+        if(playerIndex >= canvas.width-(70+lineWidth+(carWidth/2))){//Player crosses finishline
+            playerWon = true;
         }
     }
 }
@@ -208,31 +313,47 @@ function movePlayer(){
  */
 function moveCpu(){
     if(cpuIndex < cpuMoveTo){
-        if((cpuIndex - oldCpuIndex) < (cpuMoveTo - oldCpuIndex)/2){//speed up for first half, slow down for second half
+        if((cpuIndex - oldCpuIndex) < (cpuMoveTo - oldCpuIndex)/2){//speed up for first half
             console.log("added " + scaler2 + " to cpuIndex (speeding up)")
             scaler2 += 0.25;
             cpuIndex += scaler2;
         }
-        else{
+        else{//slow down for second half
             cpuIndex += scaler2;
             console.log("added " + scaler2 + " to cpuIndex (slowing down)")
             scaler2 -= 0.25;
         }
-   
         redrawBackground();
         drawCars();
         window.requestAnimationFrame(moveCpu);
     }
-    else{
+    else{//after animation is complete
         cpuMoveTo += Math.floor(distance/8);
         scaler2 = 0.5;
         console.log("scaler2 reset")
         console.log("cpuMoveTo += distance/8")
         drawProblem();
-        if(cpuIndex >= canvas.width-(70+lineWidth+(carWidth/2))){//CPU victory
-            alert("Game Over!")
-            document.getElementById("goBtn").removeEventListener("click", getUserAnswer);
+        if(cpuIndex >= canvas.width-(70+lineWidth+(carWidth/2))){//cpu crosses finishline
+            cpuWon = true;
         }
+    }
+}
+
+/**
+ * Checks for win conditions, and declares player victory, cpu victory, or tie
+ */
+function winAlert(){
+    if(playerWon == true && cpuWon == true){//tie
+        document.getElementById("resultText").innerHTML = "Tie!";
+        endGame();
+    }
+    else if(playerWon == true){//player won
+        document.getElementById("resultText").innerHTML = "You Win!";
+        endGame();
+    }
+    else if(cpuWon == true){//cpu won
+        document.getElementById("resultText").innerHTML = "Game Over!";
+        endGame();
     }
 }
 
@@ -254,7 +375,9 @@ function getUserAnswer(){
         oldCpuIndex = cpuIndex;
         moveCpu();
     } 
+    setTimeout(winAlert, 950);//waits for cars to be done moving then checks win conditions
     document.getElementById("ans").value = null;
+    numTotal++;
 }
 
-main();
+main();//runs the master code in main()
