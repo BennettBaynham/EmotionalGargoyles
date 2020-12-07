@@ -1,6 +1,16 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
+//VARIABLES FOR FORCING DIFFICULTY
+/**
+ * difficultyLocked should be true if the teacher has locked student difficulty.  I wasn't
+ * sure how to get this, but the code can be written here instead of false. The variable 
+ * called difficulty stores an int 1-3 (1=easy, 2=medium, 3=hard) to manage difficulty.
+ * the selectDifficulty() function has a conditional at the beginning, where I thought it 
+ * would make sense to put the code for retrieving the difficulty if it was assigned.
+*/
+var difficultyLocked = false;
+
 //variables for game menus
 var difBtnArr = document.getElementsByClassName("difMenuBtn");//stores difficulty buttons
 var difficulty;//used to store/signal selected difficulty (1, 2, or 3)
@@ -34,6 +44,12 @@ var orangeCar = new Image();
 orangeCar.src = "images/orangeCar.png";
 
 var tempProblem;//stores imageData of current problem to display
+
+//variables for sounds used
+// var startCars;
+// startCars = new sound("sounds/StartCar.mp3");
+// var engine = new sound("sounds/Engine.mp3");
+// var TireSkid = new sound("sounds/TireSkid.mp3");
 
 //vars for common coordinates/measurements
 var lineWidth = 25;//start/finish line width
@@ -70,13 +86,21 @@ var cpuMoveTo = Math.floor(cpuIndex + (distance/8));//the next target destinatio
 function main(){
     drawBackgroundInit();
     selectDifficulty();
-    // document.getElementById("goBtn").addEventListener("click", getUserAnswer);
 }
 
 /**
  * Creates eventListeners for each difficulty button
  */
 function selectDifficulty(){
+    if(difficultyLocked == true){
+        // ***add code here to get the assigned difficulty and store it in difficulty variable***
+        // i.e.   difficulty = difficulty assigned by teacher
+        document.getElementById("difMenu").style.display = "none";//hides difficulty menu
+        setTimeout(function(){//this timeout gives the game time to load (might replace later)
+            startGame();
+        }, 1000);
+    }
+    
     difBtnArr[0].addEventListener("click", function(){
         difficulty = 1;//set easy difficulty (numbers are 1-10)
         startGame();
@@ -113,8 +137,6 @@ function startGame(){
             break;
     }
     drawReady();
-    // drawProblem();
-    // document.getElementById("goBtn").addEventListener("click", getUserAnswer);
 }
 
 /**
@@ -209,7 +231,7 @@ function drawProblem(){
 }
 
 /**
- * Display "Ready? Set... GO!" at beginning of game
+ * Display "Ready? Set... GO!" at beginning of game and draw first problem
  */
 function drawReady(){
     //draw background for text
@@ -224,19 +246,23 @@ function drawReady(){
     ctx.fillStyle = "#FF0000";
     ctx.font = "50px Comic Sans MS";
     ctx.textAlign = "center";
+
     ctx.fillText("Ready?", xcenter, yprob+probBorder+(probHeight*0.7), 0.75*probWidth)
 
-    setTimeout(function(){
+    setTimeout(function(){//display set... for 1 second
         ctx.putImageData(temp, xcenter-(probWidth/2), yprob);
         ctx.fillStyle = "#CDC82D"
         ctx.fillText("Set...", xcenter, yprob+probBorder+(probHeight*0.7), 0.75*probWidth);
+        // startCars.play();
     }, 1000);
-    setTimeout(function(){
+
+    setTimeout(function(){//display GO! for 1 second
         ctx.putImageData(temp, xcenter-(probWidth/2), yprob);
         ctx.fillStyle = "#00FF00"
         ctx.fillText("GO!", xcenter, yprob+probBorder+(probHeight*0.7), 0.75*probWidth);
     }, 2000);
-    setTimeout(function(){
+
+    setTimeout(function(){//draw first problem
         drawProblem();
         document.getElementById("goBtn").addEventListener("click", getUserAnswer);
     }, 3000);
