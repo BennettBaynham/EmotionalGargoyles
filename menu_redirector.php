@@ -10,7 +10,7 @@ include_once "my_functions.php";
         header("Location:login.php");
     }
 
-//FOR NOW THIS JUST SENDS USER TO ADMIN MENU
-$user_type = 3;
+//FOR NOW THIS JUST SENDS USER TO TEACHER MENU
+$user_type = 2;
 redirect($user_type);
 ?>

@@ -246,7 +246,6 @@ function drawReady(){
     ctx.fillStyle = "#FF0000";
     ctx.font = "50px Comic Sans MS";
     ctx.textAlign = "center";
-
     ctx.fillText("Ready?", xcenter, yprob+probBorder+(probHeight*0.7), 0.75*probWidth)
 
     setTimeout(function(){//display set... for 1 second
