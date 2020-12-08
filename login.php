@@ -22,7 +22,7 @@
             left: 50%;
             bottom: 50%;
             transform: translate(-50%);
-            background-color: #00FFFF;
+            background-color: #b1efff;
             padding: 30px 20px 25px 20px;
             border: 2px solid black;
             border-radius: 5px;
@@ -36,7 +36,7 @@
         }
 
         #newUser:hover{
-            cursor: pointer;
+            /* cursor: pointer; */
             color: darkblue;
         }
 
@@ -46,10 +46,18 @@
             left: 50%;
             bottom: 40%;
             transform: translate(-50%);
-            background-color: #00FFFF;
+            background-color: #b1efff;
             padding: 30px 20px 25px 20px;
             border: 2px solid black;
             border-radius: 5px;
+        }
+
+        button:hover{
+            cursor: pointer;
+        }
+
+        #checkbox:hover{
+            cursor: pointer;
         }
     </style>
 
@@ -70,8 +78,8 @@
    <form action="my_functions.php" method="post">
        Create Username: <input type="text" name="u"><br><br>
        Create Password: <input type="password" name="pw"><br><br>
-       Student: <input type="radio" name='ut' value="1" checked>
-       Teacher:  <input type="radio" name='ut' value="2"><br><br>
+       Student: <input type="radio" name='ut' id="checkbox" value="1" checked>
+       Teacher:  <input type="radio" name='ut' id="checkbox" value="2"><br><br>
        Teacher Username (if student): <input type="text" name="t"><br><br>
        <input type="hidden" name="task" value="register">
        <button type="submit">Register</button>
