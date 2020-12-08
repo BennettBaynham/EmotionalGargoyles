@@ -28,21 +28,14 @@
 <body>  
     <h1 class="titleBorder"> Welcome!</h1><br>
     <h2 class="textBorder">
-        What would you like to do? <br><br>
-        
-        Play...<br>
-        <ul id="games">
-            <li><a href="../CarGame/index.php">Crazy Cars</a></li>
-            <!-- <li><a href="../games/whack_a_mole.php">Whack-A-Mole</a></li> -->
-            <li><a href="../games/change_it_up.php">Change It Up</a></li>
-            <!-- <li><a href="../games/block_builder.php">Block Builder</a></li> -->
-            <li><a href="../NumberLine/index.html">Fine Line</a></li><br>
-        </ul>
+    What would you like to play? <br><br>
     
-        Other...<br>
-        <ul id="games">
-            <li><a href="../student_list.html">Student List</a></li>    
-            <li><a href="../problems_page.html">Add Problems</a></li>
+    <ul id="games">
+        <li><a href="../CarGame/index.php">Crazy Cars</a></li>
+        <!-- <li><a href="../games/whack_a_mole.php">Whack-A-Mole</a></li> -->
+        <li><a href="../games/change_it_up.php">Change It Up</a></li>
+        <!-- <li><a href="../games/block_builder.php">Block Builder</a></li> -->
+        <li><a href="../NumberLine/index.html">Fine Line</a></li>
         </ul>
     </h2>
 </body>

@@ -45,12 +45,6 @@ orangeCar.src = "images/orangeCar.png";
 
 var tempProblem;//stores imageData of current problem to display
 
-//variables for sounds used
-// var startCars;
-// startCars = new sound("sounds/StartCar.mp3");
-// var engine = new sound("sounds/Engine.mp3");
-// var TireSkid = new sound("sounds/TireSkid.mp3");
-
 //vars for common coordinates/measurements
 var lineWidth = 25;//start/finish line width
 var lineHeight = 120;//start/finish line and road height
@@ -216,7 +210,22 @@ function drawProblem(){
     num1 = Math.round(Math.random()*(maxNum-minNum) + minNum);
     num2 = Math.round(Math.random()*(maxNum-minNum) + minNum);
 
-    realAnswer = num1 + num2;
+    //determine addition or subtration
+    var tempNum = Math.floor(Math.random()*9)//random int 0 <= int <= 9
+    var operator;//keep track of current operation
+    if(tempNum < 5){//choose addition 1/2 the time
+        realAnswer = num1 + num2;
+        operator = " + ";
+    }
+    else{//subtraction
+        if(num2 > num1){//check number order
+            tempNum = num1;
+            num1 = num2;
+            num2 = tempNum;
+        }
+        realAnswer = num1 - num2;
+        operator = " - "
+    }
     ctx.fillStyle = "#FF0000";
     ctx.fillRect(xcenter-(probWidth/2), yprob, probWidth, probHeight)//border
     ctx.fillStyle = "#FFFFFF";
@@ -224,7 +233,7 @@ function drawProblem(){
     ctx.fillStyle = "#000000";
     ctx.font = "50px Comic Sans MS";
     ctx.textAlign = "center";
-    ctx.fillText(num1+" + "+num2, xcenter, yprob+probBorder+(probHeight*0.7), 0.75*probWidth)
+    ctx.fillText(num1+operator+num2, xcenter, yprob+probBorder+(probHeight*0.7), 0.75*probWidth)
    
     //store current math problem to display
     tempProblem = ctx.getImageData(xcenter-(probWidth/2), yprob, probWidth, probHeight);
