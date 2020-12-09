@@ -295,6 +295,9 @@ function closeDropDown(){
 }
 
 
+var studentList= <?php echo json_encode(findStudents($_SESSION['u_name'])); ?>;
+console.log(studentList['Horowitz']['coin1W']);//for example
+
 main()
 </script>
 

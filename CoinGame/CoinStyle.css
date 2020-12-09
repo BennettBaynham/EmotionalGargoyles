@@ -1,0 +1,23 @@
+#bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(255, 230, 0);
+    box-shadow: 5px 5px 4px rgb(87, 87, 87);
+}
+
+#bar li a {
+    display: block;
+    color: red;
+    text-align: center;
+    padding: 18px 20px;
+    text-decoration: none;
+ }
+ 
+#bar li a:hover:not(.active) {
+    background-color: rgb(105, 1, 1);
+}
+body {
+    background-color: #2591bb;
+ }
