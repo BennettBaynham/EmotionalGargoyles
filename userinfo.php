@@ -19,7 +19,25 @@
 				                        echo $_SESSION['u_name'];	
 			                        }else{
 				                        header("Location: login.php");
-			                        }
+                                    }
+                                    $users = getData("./user.json");
+                                    if(array_key_exists($_SESSION['u_name'], $users)){//if there is a teacher with this id
+                                        header("Location: games/teacher_menu.php");
+                                    }
+                                    $teacher;
+                                    foreach($users as $key => $value){//if there is a student with this id
+                                        if(array_key_exists($_SESSION['u_name'], $value)){
+                                            $teacher = $key;
+                                        }
+                                    }
+                                    $carRight = $users[$teacher][$_SESSION['u_name']]['car3W'] + $users[$teacher][$_SESSION['u_name']]['car2W'] +$users[$teacher][$_SESSION['u_name']]['car1W'];
+                                    $lineRight = $users[$teacher][$_SESSION['u_name']]['line3W'] + $users[$teacher][$_SESSION['u_name']]['line2W'] +$users[$teacher][$_SESSION['u_name']]['line1W'];
+                                    $coinRight = $users[$teacher][$_SESSION['u_name']]['coin3W'] + $users[$teacher][$_SESSION['u_name']]['coin2W'] +$users[$teacher][$_SESSION['u_name']]['coin1W'];
+
+                                    $carWrong = $users[$teacher][$_SESSION['u_name']]['car3L'] + $users[$teacher][$_SESSION['u_name']]['car2L'] +$users[$teacher][$_SESSION['u_name']]['car1L'];
+                                    $lineWrong = $users[$teacher][$_SESSION['u_name']]['line3L'] + $users[$teacher][$_SESSION['u_name']]['line2L'] +$users[$teacher][$_SESSION['u_name']]['line1L'];
+                                    $coinWrong = $users[$teacher][$_SESSION['u_name']]['coin3L'] + $users[$teacher][$_SESSION['u_name']]['coin2L'] +$users[$teacher][$_SESSION['u_name']]['coin1L'];
+                                    
 		                        ?>
                                 <p>Student</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                             </div>
@@ -31,7 +49,7 @@
                             <li><a href="menu_redirector.php">Home</a></li>
                             <li style="float:right"><a href="login.php">Log Out</a></li>
                             <li style="float:right"><a class="active" href="userinfo.php">Profile</a></li>
-                            <li style="float:left"><a href="basicLessons.html">Basic Lessons</a></li>
+                            <li style="float:left"><a href="basicLessons.php">Basic Lessons</a></li>
                           </ul>
                         <div class="col-sm-8">
                             <div class="card-block">
@@ -41,33 +59,33 @@
                                         <p class="m-b-10 f-w-600">Crazy Cars</p>
                                         <h6 class="text-muted f-w-400">Number of Correct Questions</h6>
                                         <div class="box">
-                                            <p>1</p>
+                                            <p><?php echo $carRight?></p>
                                         </div>
                                         <h6 class="text-muted f-w-400">Number of Incorrect Questions</h6>
                                         <div class="box">
-                                            <p>2</p>
+                                            <p><?php echo $carWrong?></p>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Change it Up</p>
                                         <h6 class="text-muted f-w-400">Number of Correct Questions</h6>
                                         <div class="box">
-                                            <p>25</p>
+                                            <p><?php echo $coinRight?></p>
                                         </div>
                                         <h6 class="text-muted f-w-400">Number of Incorrect Questions</h6>
                                         <div class="box">
-                                            <p>600</p>
+                                            <p><?php echo $coinWrong?></p>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Fine Line</p>
                                         <h6 class="text-muted f-w-400">Number of Correct Questions</h6>
                                         <div class="box">
-                                            <p>7</p>
+                                            <p><?php echo $lineRight?></p>
                                         </div>
                                         <h6 class="text-muted f-w-400">Number of Incorrect Questions</h6>
                                         <div class="box">
-                                            <p>10</p>
+                                            <p><?php echo $lineWrong?></p>
                                         </div>
                                     </div>
                                 </div>
