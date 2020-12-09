@@ -71,20 +71,38 @@
                                         <p class="m-b-10 f-w-600">Select Game Difficulty</p>
                                         
                                         <form action="" method="POST">
-                                            <button name="click" class="button button2">Easy</button>
+                                            <button name="click1" class="button button2">Easy</button>
                                         </form>
                                         <?php
-                                            if(isset($_POST['click'])) {
-                                                $easy_locked = 1;
-                                                echo "Easy has been set";
+                                            if(isset($_POST['click1'])) {
+                                                $diff_locked = 1;
+                                                echo "Easy difficulty has been set";
+                                            } else {
+                                                echo "";
                                             }
                                         ?>
-                                        <div>
-                                            <button class='button button2'><a>Medium</a></button>
-                                        </div>
-                                        <div>
-                                            <button class='button button2'><a>Hard</a></button>
-                                        </div>
+                                        <form action="" method="POST">
+                                            <button name="click2" class="button button2">Medium</button>
+                                        </form>
+                                        <?php
+                                            if(isset($_POST['click2'])) {
+                                                $diff_locked = 2;
+                                                echo "Medium difficulty has been set";
+                                            } else {
+                                                echo "";
+                                            }
+                                        ?>
+                                        <form action="" method="POST">
+                                            <button name="click3" class="button button2">Hard</button>
+                                        </form>
+                                        <?php
+                                            if(isset($_POST['click3'])) {
+                                                $diff_locked = 3;
+                                                echo "Hard difficulty has been set";
+                                            } else {
+                                                echo "";
+                                            }
+                                        ?>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Most Viewed Page</p>
