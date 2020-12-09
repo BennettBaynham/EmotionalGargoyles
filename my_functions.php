@@ -103,8 +103,10 @@
 
     /**Between login and game menu: function checks user type and sends user to
      * appropriate menu.**/
-    function redirect($user_type){
-        if($user_type == 2){
+    function redirect($type){
+        // $users = getData("user.json");
+        // $type = $users[$_POST['u']['user_type']];
+        if($type == 2){
             header("Location: menus/teacher_menu.php");
         }
         else{//default to student menu to prevent accidental teacher/admin access

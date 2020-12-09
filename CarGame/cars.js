@@ -29,6 +29,7 @@ var maxNum;//maximum number, determined by difficulty selection
 var minNum;//minimum number, determined by difficulty selection
 var realAnswer;//correct answer to math problem
 var numCorrect = 0;//tracks the number of problems answered correctly
+var numWrong = 0;//tracks the number of problems answered incorrectly
 var numTotal = 0;//how many problems were answered total in a game
 
 //vars for images used
@@ -334,7 +335,6 @@ function movePlayer(){
         scaler1 = 0.5;
         console.log("scaler1 reset")
         console.log("playerMoveTo += distance/5")
-        numCorrect++;
         console.log(numCorrect);
         if(playerIndex >= canvas.width-(70+lineWidth+(carWidth/2))){//Player crosses finishline
             playerWon = true;
@@ -399,11 +399,13 @@ function getUserAnswer(){
     if(document.getElementById("ans").value.length != 0 && 
     document.getElementById("ans").value != realAnswer){//answer present but incorrect
         drawIncorrect();
+        numWrong++;
         oldCpuIndex = cpuIndex;
         moveCpu();
     }
     else if(document.getElementById("ans").value == realAnswer){//correct answer
         drawCorrect();
+        numCorrect++;
         oldPlayerIndex = playerIndex;
         movePlayer();
         oldCpuIndex = cpuIndex;

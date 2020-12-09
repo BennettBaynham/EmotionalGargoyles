@@ -55,7 +55,7 @@
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Student Lists</p>
                                         <div>
-                                            <button class='button button2'><a href="studentLists.php">Students</a></button>
+                                            <button class='button button2'><a href="student_list.php">Students</a></button>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">

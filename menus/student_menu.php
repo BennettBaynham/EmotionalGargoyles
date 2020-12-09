@@ -10,7 +10,7 @@
     <ul id="bar"><!--Website navigation bar at the top of the page-->
         <li><a href="../menu_redirector.php" class="active">Home</a></li>
          <li style="float:right"><a href="../login.php">Log Out</a></li>
-         <li style="float:right"><a href="../userinfo.html">Profile</a></li> 
+         <li style="float:right"><a href="../userinfo.php">Profile</a></li> 
          <li style="float:left"><a href="../basicLessons.html">Basic Lessons</a></li>
     </ul>
 </head>

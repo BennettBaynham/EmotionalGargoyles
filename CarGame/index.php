@@ -55,8 +55,8 @@
             <button class="endMenuBtn"><a href="../menu_redirector.php">Home</a></button>
           </li>
         </ul>
-      
       </div>
+      
       <!-- User input section at the bottom -->
       <ul>
         <li class="titleText" id="inputs">Answer: <input type="text" style="width: 50px" id="ans"></li>
