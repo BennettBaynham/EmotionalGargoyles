@@ -14,7 +14,6 @@
 ?>
 
 
-
 <!-- So basically the div called "dropDown" will contain all of the students assigned to the 
     teacher.  The teacher can select one and their stats will pop up. I will have it ready 
     with sample info, and I just need you to get it to loop through the actual students and 
@@ -223,7 +222,7 @@ var sueData = ["Sue", //***STAND IN FOR ACTUAL DATA FROM A STUDENT***
                 5, 6,
                 2, 4];
 
-var userData = [billyData, sueData]//***THIS SHOULD GET STUDENT NAMES LINKED TO TEACHER INSTEAD***
+studentList = [billyData, sueData]//***THIS SHOULD GET STUDENT NAMES LINKED TO TEACHER INSTEAD***
 function main(){
     createStudentElements()
     setDropDownListeners();
@@ -275,15 +274,15 @@ function setSelected(name){
     }
 
     //alter the innerHTML of the stat blocks to include user data
-    document.getElementById("carEasy").innerHTML = "Easy: "+currentData[1]+"/"+(currentData[1]+currentData[2]);
-    document.getElementById("carMed").innerHTML = "Medium: "+currentData[3]+"/"+(currentData[3]+currentData[4]);
-    document.getElementById("carHard").innerHTML = "Hard: "+currentData[5]+"/"+(currentData[5]+currentData[6]);
-    document.getElementById("coinEasy").innerHTML = "Easy: "+currentData[7]+"/"+(currentData[7]+currentData[8]);
-    document.getElementById("coinMed").innerHTML = "Medium: "+currentData[9]+"/"+(currentData[9]+currentData[10]);
-    document.getElementById("coinHard").innerHTML = "Hard: "+currentData[11]+"/"+(currentData[11]+currentData[12]);
-    document.getElementById("lineEasy").innerHTML = "Easy: "+currentData[13]+"/"+(currentData[13]+currentData[14]);
-    document.getElementById("lineMed").innerHTML = "Medium: "+currentData[15]+"/"+(currentData[15]+currentData[16]);
-    document.getElementById("lineHard").innerHTML = "Hard: "+currentData[17]+"/"+(currentData[17]+currentData[18]);    
+    document.getElementById("carEasy").innerHTML = "Easy: "+currentData[11]+"/"+(currentData[11]+currentData[12]);
+    document.getElementById("carMed").innerHTML = "Medium: "+currentData[13]+"/"+(currentData[13]+currentData[14]);
+    document.getElementById("carHard").innerHTML = "Hard: "+currentData[15]+"/"+(currentData[15]+currentData[16]);
+    document.getElementById("coinEasy").innerHTML = "Easy: "+currentData[4]+"/"+(currentData[4]+currentData[5]);
+    document.getElementById("coinMed").innerHTML = "Medium: "+currentData[6]+"/"+(currentData[6]+currentData[7]);
+    document.getElementById("coinHard").innerHTML = "Hard: "+currentData[8]+"/"+(currentData[8]+currentData[9]);
+    document.getElementById("lineEasy").innerHTML = "Easy: "+currentData[18]+"/"+(currentData[18]+currentData[19]);
+    document.getElementById("lineMed").innerHTML = "Medium: "+currentData[20]+"/"+(currentData[20]+currentData[21]);
+    document.getElementById("lineHard").innerHTML = "Hard: "+currentData[22]+"/"+(currentData[22]+currentData[23]);    
 }
 
 /**
@@ -303,7 +302,6 @@ function closeDropDown(){
 
 var studentList= <?php echo json_encode($studentList);?>;
 console.log(studentList);//for example
-
 
 main()
 </script>
