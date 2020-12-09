@@ -33,7 +33,7 @@
     <ul id="games">
         <li><a href="../CarGame/index.php">Crazy Cars</a></li>
         <!-- <li><a href="../games/whack_a_mole.php">Whack-A-Mole</a></li> -->
-        <li><a href="../games/change_it_up.php">Change It Up</a></li>
+        <li><a href="../CoinGame/index.php">Change It Up</a></li>
         <!-- <li><a href="../games/block_builder.php">Block Builder</a></li> -->
         <li><a href="../NumberLine/index.html">Fine Line</a></li>
         </ul>

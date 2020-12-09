@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="creativeProfile.css">
+<link rel="stylesheet" href="profileCreative.css">
 
 <style>
 .button {
@@ -58,12 +58,12 @@
                                             <button class='button button2'><a href="student_list.php">Students</a></button>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <!-- <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Teacher List</p>
                                         <div>
                                             <button class='button button2'><a href="teacherLists.php">Teachers</a></button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Games</h6>
                                 <div class="row">

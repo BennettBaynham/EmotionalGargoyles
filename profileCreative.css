@@ -188,3 +188,33 @@ buttonBox {
     padding: 20px;
     margin: 20px;
 }
+
+#bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #b1efff;
+    box-shadow: 5px 5px 4px gray;
+}
+
+#bar li {
+   float: left;
+}
+
+#bar li a {
+   display: block;
+   color: black;
+   text-align: center;
+   padding: 18px 20px;
+   text-decoration: none;
+}
+
+#bar li a:hover:not(.active) {
+   background-color: #4899ad;
+}
+
+/* sets background color for menu bar options when active */
+.active {
+   background-color: #4899ad;
+}

@@ -188,7 +188,7 @@ h2{
 var dropDown = document.getElementById("dropDown");
 var select = document.getElementById("select");
 
-var students = document.getElementsByClassName("student");
+var students;
 var billyData = ["Billy", //***STAND IN FOR ACTUAL DATA FROM A STUDENT***
                                     
                     //right, wrong for carEasy, carMed, and carHard
@@ -230,16 +230,15 @@ function main(){
 }
 
 function createStudentElements(){
-    // var tempName;
     var element;
     var location = document.querySelector('#dropDown');
     for(i=0; i<userData.length; i++){
-        // tempName = userData[i][0];
         element = document.createElement("BUTTON");
         element.className = "student";
         element.innerHTML = userData[i][0];
         location.appendChild(element);
     }
+    students = document.getElementsByClassName("student");
 }
 
 /**
