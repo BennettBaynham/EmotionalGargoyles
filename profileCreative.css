@@ -1,4 +1,4 @@
-body {
+.body {
     background-color: #f9f9fa
 }
 
@@ -129,7 +129,7 @@ h6 {
     color: black;
     text-align: center;
   }
-#bar ul {
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -138,11 +138,11 @@ h6 {
     box-shadow: 5px 5px 4px gray;
 }
 
-#bar li {
+li {
     float: left;
 }
 
-#bar li a {
+li a {
     display: block;
     color: black;
     text-align: center;
@@ -150,11 +150,11 @@ h6 {
     text-decoration: none;
 }
 
-#bar li a:hover:not(.active) {
+li a:hover:not(.active) {
     background-color: #4899ad;
 }
 
-#bar .active {
+.active {
     background-color: #4899ad;
 }
 .glass {
@@ -181,34 +181,10 @@ buttonBox {
 .boxed {
     border: 1px solid #cee1ff ;
 }
-/* id for ul for menu options on game menu */
-#games{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+.box {
     background-color: #b1efff;
- }
- 
- /* sets background color for menu options when active */
- .active2{
-    background-color: darkorange;
- }
- 
- /* style for links in main menu options area */
- #games li a{
-    color: darkorange;
-    text-decoration: none;
-    padding: 3px;
-    border-radius: 10px;
- }
- 
- #games li{
-    padding: 3px;
- }
- 
- /* Change text background and text color when mouse hovers over it */
- #games li a:hover:not(.active) {
-    background-color: darkorange;
-    color: white;
- }
+    width: 100px;
+    border: 15px solid #4899ad;
+    padding: 20px;
+    margin: 20px;
+}
