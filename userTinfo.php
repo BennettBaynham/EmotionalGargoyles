@@ -45,7 +45,7 @@
                           <ul id="bar">
                             <li><a href="menu_redirector.php">Home</a></li>
                             <li style="float:right"><a href="login.php">Log Out</a></li>
-                            <li style="float:right"><a class="active" href="userinfo.html">Profile</a></li>
+                            <li style="float:right"><a class="active" href="userTinfo.php">Profile</a></li>
                             <li style="float:left"><a href="basicLessons.html">Basic Lessons</a></li>
                           </ul>
                         <div class="col-sm-8">
