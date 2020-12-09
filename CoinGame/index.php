@@ -46,6 +46,9 @@
       <div class="inner"><button type="submit" onClick="runGame()" >Start Game</button></div>
       <div class="inner"><button type="submit" onClick="submit()">Submit Answer</button></div>
     </div>
+    <div>
+        <p>Click as few coins as possible!<p>
+    </div>
     <div id="options"style="display: none">
       <div class="inner"><input name="difficulty" type="radio" checked value=1>Easy</input></div>
       <div class="inner"><input name="difficulty" type="radio" value=2>Normal</input></div>
