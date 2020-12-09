@@ -195,8 +195,9 @@
 
     function findStudents($name){
         $users = getData("user.json");
+        $users = $users[$name];
         $studentsList = array();
-        foreach($users[$name] as $key => $value){//running through students under the teacher
+        foreach($users as $key => $value){//running through students under the teacher
             if($key != 'username' && $key != 'password' && $key != 'user_type'){
                 $studentsList[$key] =$value;
             }
