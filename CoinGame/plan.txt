@@ -1,0 +1,5 @@
+This game teaches children to coin coins, which is addition, but fun?
+The goal is to use as few coins as possible to add up to the value.
+
+index.php: the main part of the game, dealing with some css, and all the html, php, and javascript.
+CoinStyle.css deals with larger schemes, and what we have standardized on the website.
