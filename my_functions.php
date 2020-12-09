@@ -11,17 +11,17 @@
                     header("Location: menu_redirector.php");
                 }else{
                     echo "Cannot login";
-                    //header("refresh:2; url=login.php");
+                    header("refresh:2; url=login.php");
                 }
                 break; 
             case 'register':
                 $out = create_account();
                 if($out == 0){
                     echo "Username Taken";
-                    //header("refresh:2; url=login.php");
+                    header("refresh:2; url=login.php");
                 }else if($out == 1){
                     echo "Incorrect Teacher ID";
-                    //header("refresh:2; url=login.php");
+                    header("refresh:2; url=login.php");
                 }else if($out == 2){
                     if(session_status() !==PHP_SESSION_ACTIVE){
                         session_start();
@@ -178,4 +178,16 @@
             session_start();
         }
    }
+
+
+    function findStudents($name){
+        $users = getData("user.json");
+        $studentsList = array();
+        foreach($users[$name] as $key => $value){//running through students under the teacher
+            if($key != 'username' && $key != 'password' && $key != 'user_type'){
+                $studentsList[$key] =$value;
+            }
+        }
+        return $studentsList;
+    }
 ?> 
