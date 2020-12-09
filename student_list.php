@@ -144,9 +144,9 @@ h2{
     </div>
 
     <!-- Students will go here in a dropdown menu -->
+    <!-- ***THIS SHOULD CONTAIN ELEMENTS CREATED WITH STUDENT NAMES LINKED TO THE TEACHER*** -->
     <div id="dropDown">
-        <button class="student">Sample student</button>
-        <button class="student">Sample student 2</button>
+        <!-- Elements are created here by the createStudentElements() function -->
     </div>
 
 
@@ -180,13 +180,60 @@ h2{
 <script type="text/javascript">
 var dropDown = document.getElementById("dropDown");
 var select = document.getElementById("select");
-var students = document.getElementsByClassName("student");//***THIS SHOULD GET STUDENTS LINKED TO TEACHER INSTEAD***
 
+var students = document.getElementsByClassName("student");
+var billyData = ["Billy", //***STAND IN FOR ACTUAL DATA FROM A STUDENT***
+                                    
+                    //right, wrong for carEasy, carMed, and carHard
+                    6, 10,
+                    8, 9,
+                    10, 15,
+
+                    //right, wrong for coinEasy, coinMed, and coinHard
+                    1, 4,
+                    12, 16,
+                    8, 8,
+                            
+                    //right, wrong for lineEasy, lineMed, and lineHard
+                    9, 10,
+                    10, 12,
+                    6, 9];
+
+var sueData = ["Sue", //***STAND IN FOR ACTUAL DATA FROM A STUDENT***
+                                    
+                //right, wrong for carEasy, carMed, and carHard
+                5, 12,
+                10, 10,
+                14, 15,
+                
+                //right, wrong for coinEasy, coinMed, and coinHard
+                4, 6,
+                10, 20,
+                7, 10,
+                                            
+                //right, wrong for lineEasy, lineMed, and lineHard
+                10, 11,
+                5, 6,
+                2, 4];
+
+var userData = [billyData, sueData]//***THIS SHOULD GET STUDENT NAMES LINKED TO TEACHER INSTEAD***
 function main(){
+    createStudentElements()
     setDropDownListeners();
 }
 
-
+function createStudentElements(){
+    // var tempName;
+    var element;
+    var location = document.querySelector('#dropDown');
+    for(i=0; i<userData.length; i++){
+        // tempName = userData[i][0];
+        element = document.createElement("BUTTON");
+        element.className = "student";
+        element.innerHTML = userData[i][0];
+        location.appendChild(element);
+    }
+}
 
 /**
  * Set up initial eventListeners for drop down menu funtion
@@ -198,8 +245,7 @@ function setDropDownListeners(){
     select.addEventListener("mouseout", closeDropDown);
     dropDown.addEventListener("mouseout", closeDropDown);
 
-    //creates eventListeners for each student name in the dropdown menu
-    var name;
+    //creates eventListeners in the dropdown menu for each student name (using the created html elements) 
     for(var i=0; i < students.length; i++){
         name = students[i].textContent;
         students[i].addEventListener("click", setSelected.bind(this, name))
@@ -212,8 +258,26 @@ function setDropDownListeners(){
 */
 function setSelected(name){
     select.innerHTML = name;
+    console.log(name);
     // USE NAME TO GET OTHER INFO FROM JSON FILE
     // USING SAMPLE INFO HERE
+    var currentData;
+    for(i=0; i < userData.length; i++){
+        if(userData[i][0] == name){
+            currentData = userData[i];//get the array for selected user
+        }
+    }
+
+    //alter the innerHTML of the stat blocks to include user data
+    document.getElementById("carEasy").innerHTML = "Easy: "+currentData[1]+"/"+(currentData[1]+currentData[2]);
+    document.getElementById("carMed").innerHTML = "Medium: "+currentData[3]+"/"+(currentData[3]+currentData[4]);
+    document.getElementById("carHard").innerHTML = "Hard: "+currentData[5]+"/"+(currentData[5]+currentData[6]);
+    document.getElementById("coinEasy").innerHTML = "Easy: "+currentData[7]+"/"+(currentData[7]+currentData[8]);
+    document.getElementById("coinMed").innerHTML = "Medium: "+currentData[9]+"/"+(currentData[9]+currentData[10]);
+    document.getElementById("coinHard").innerHTML = "Hard: "+currentData[11]+"/"+(currentData[11]+currentData[12]);
+    document.getElementById("lineEasy").innerHTML = "Easy: "+currentData[13]+"/"+(currentData[13]+currentData[14]);
+    document.getElementById("lineMed").innerHTML = "Medium: "+currentData[15]+"/"+(currentData[15]+currentData[16]);
+    document.getElementById("lineHard").innerHTML = "Hard: "+currentData[17]+"/"+(currentData[17]+currentData[18]);    
 }
 
 /**
