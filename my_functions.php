@@ -173,6 +173,19 @@
         
     }
 
+    function setDifficulty($teacher, $val){
+        $users = getData("user.json");
+        foreach($users[$teacher] as $key => $value){
+            if($key != 'username' && $key != 'password' && $key != 'user_type'){
+                $users[$teacher][$key]['coinD'] = $val;
+                $users[$teacher][$key]['carD'] = $val;
+                $users[$teacher][$key]['lineD'] = $val;
+            }
+        }
+        writeData("user.json", $users);
+        
+    }
+
    function my_session_start(){
         if(session_status()!==PHP_SESSION_ACTIVE){
             session_start();
