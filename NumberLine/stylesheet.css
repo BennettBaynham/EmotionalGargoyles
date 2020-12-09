@@ -1,0 +1,149 @@
+/* Style for the Number Line page */
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.titleText{
+    border-style: solid;
+    border-radius: 10px;
+    background-color:teal;
+    color:wheat;
+    width: fit-content;
+    height: fit-content;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+#container{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80%;
+    background-color: none;
+}
+
+#canvas{
+    border: 8px solid teal;
+    border-radius: 20px;
+}
+
+/* Style for game menus */
+/* entire menu */
+.menu{
+    position: absolute;
+    background-color: teal;
+    left: 50%;
+    top: 20px;
+    transform: translate(-50%);
+    width: 20%;
+    height: 60%;
+    font-size: 150%;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    color: teal;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    box-shadow: 8px 8px 6px black;
+}
+
+/* ***DELETE THIS*** */
+/* #difMenu{
+    display: none;
+} */
+
+#endMenu{
+    display: none;
+}
+
+/* buttons in game menus */
+.difMenuBtn{
+    font-size: 100%;
+    padding: 5px 25px;
+    border-radius: 10px;
+}
+
+.difMenuBtn:hover{
+    cursor: pointer;
+}
+
+.endMenuBtn{
+    font-size: 100%;
+    padding: 5px 25px;
+    border-radius: 10px;
+    background-color: rgb(255, 228, 140);
+}
+
+.endMenuBtn:hover{
+    cursor: pointer;
+    background-color: teal;
+}
+
+#ulMenu{
+    padding-inline-start: 0px;
+}
+
+#liMenu{
+    list-style-type: none;
+    display: block;
+    margin-bottom: 25px;
+}
+
+button a{
+    text-decoration: none;
+    color: black;
+}
+
+/* style for user interface (button, input, etc)*/
+.btn{
+    border: 2px solid rgb(201, 201, 201);
+    border-radius: 50px;
+    background-color: rgb(57, 180, 228);
+    color: white;
+    padding: 10px 6px;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: rgb(109, 203, 247);
+}
+
+#inputs{
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+ul li input{
+    vertical-align: middle;
+}
+
+
+/* style for menu bar */
+#bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(104, 197, 185);
+    box-shadow: 5px 5px 4px rgb(37, 37, 37);
+}
+
+#bar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 18px 20px;
+    text-decoration: none;
+ }
+ 
+#bar li a:hover:not(.active) {
+    background-color: rgb(0, 76, 139);
+}
