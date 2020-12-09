@@ -5,7 +5,14 @@
 		if(!isset($_SESSION['u_name'])){
 			header("Location: login.php");
         }
+        $users = getData("user.json");
+        if(!array_key_exists($_SESSION['u_name'], $users)){//if there is a teacher with this id
+            header("Location: menus/student_menu.php");
+        }
+
+        $studentList = findStudents($_SESSION['u_name']);
 ?>
+
 
 
 <!-- So basically the div called "dropDown" will contain all of the students assigned to the 
@@ -295,8 +302,9 @@ function closeDropDown(){
 }
 
 
-var studentList= <?php echo json_encode(findStudents($_SESSION['u_name'])); ?>;
-console.log(studentList['Horowitz']['coin1W']);//for example
+var studentList= <?php echo json_encode($studentList);?>;
+console.log(studentList);//for example
+
 
 main()
 </script>
