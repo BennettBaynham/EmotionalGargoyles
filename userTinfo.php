@@ -75,7 +75,7 @@
                                         </form>
                                         <?php
                                             if(isset($_POST['click1'])) {
-                                                $diff_locked = 1;
+                                                setDifficulty($_SESSION['u_name'], 1);
                                                 echo "Easy difficulty has been set";
                                             } else {
                                                 echo "";
@@ -86,7 +86,7 @@
                                         </form>
                                         <?php
                                             if(isset($_POST['click2'])) {
-                                                $diff_locked = 2;
+                                                setDifficulty($_SESSION['u_name'], 2);
                                                 echo "Medium difficulty has been set";
                                             } else {
                                                 echo "";
@@ -97,8 +97,19 @@
                                         </form>
                                         <?php
                                             if(isset($_POST['click3'])) {
-                                                $diff_locked = 3;
+                                                setDifficulty($_SESSION['u_name'], 3);
                                                 echo "Hard difficulty has been set";
+                                            } else {
+                                                echo "";
+                                            }
+                                        ?>
+                                        <form action="" method="POST">
+                                            <button name="click4" class="button button2">Free</button>
+                                        </form>
+                                        <?php
+                                            if(isset($_POST['click4'])) {
+                                                setDifficulty($_SESSION['u_name'], 0);
+                                                echo "The choice has been made available";
                                             } else {
                                                 echo "";
                                             }
