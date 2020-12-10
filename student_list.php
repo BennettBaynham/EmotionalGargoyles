@@ -221,7 +221,10 @@ var sueData = ["Sue", //***STAND IN FOR ACTUAL DATA FROM A STUDENT***
                 10, 11,
                 5, 6,
                 2, 4];
-
+var studentList= <?php echo json_encode($studentList);?>;
+console.log(studentList['bing']['coin1W']);
+	
+	
 studentList = [billyData, sueData]//***THIS SHOULD GET STUDENT NAMES LINKED TO TEACHER INSTEAD***
 function main(){
     createStudentElements()
@@ -298,12 +301,6 @@ function openDropDown(){
 function closeDropDown(){
     dropDown.style.display = "none";
 }
-
-
-var studentList= <?php echo json_encode($studentList);?>;
-// var studentArray = JSON.parse(studentList);
-console.log(studentList);//for example
-// console.log(studentArray);
 
 main()
 </script>
