@@ -35,7 +35,7 @@ body {
 /* entire menu */
 .menu{
     position: absolute;
-    background-color: teal;
+    background-color: rgb(108, 253, 253);
     left: 50%;
     top: 20px;
     transform: translate(-50%);
