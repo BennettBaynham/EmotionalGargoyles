@@ -1,5 +1,10 @@
 Welcome to The Emotional Gargoyles' "Math Games" software!
 
+Sample Teacher login:
+
+Sample Student login:
+
+
 >FOR TEACHERS:
     Thank you for choosing our software!
 

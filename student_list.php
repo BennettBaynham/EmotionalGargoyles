@@ -231,7 +231,7 @@ function main(){
 function createStudentElements(){
     var element;
     var location = document.querySelector('#dropDown');
-    for(i=0; i<userData.length; i++){
+    for(i=0; i<studentList.length; i++){
         element = document.createElement("BUTTON");
         element.className = "student";
         element.innerHTML = userData[i][0];
@@ -301,7 +301,9 @@ function closeDropDown(){
 
 
 var studentList= <?php echo json_encode($studentList);?>;
+// var studentArray = JSON.parse(studentList);
 console.log(studentList);//for example
+// console.log(studentArray);
 
 main()
 </script>
