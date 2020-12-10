@@ -87,7 +87,7 @@ var difBtnArr = document.getElementsByClassName("difMenuBtn");//stores difficult
 	var numRight = 0;
 	var numWrong = 0;
 	var difficultyLocked = false;
-	var lock = "<?php echo gameDifficulty('carD')?>";
+	var lock = "<?php echo gameDifficulty('lineD')?>";
 	if(lock == 0){
   		var difficultyLocked = false;
 	}else{
