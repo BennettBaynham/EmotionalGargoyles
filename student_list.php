@@ -222,7 +222,11 @@ var sueData = ["Sue", //***STAND IN FOR ACTUAL DATA FROM A STUDENT***
                 5, 6,
                 2, 4];
 var studentList= <?php echo json_encode($studentList);?>;
-console.log(studentList['bing']['coin1W']);
+
+for (var key in studentList) {
+    console.log(key);
+}
+	
 	
 	
 studentList = [billyData, sueData]//***THIS SHOULD GET STUDENT NAMES LINKED TO TEACHER INSTEAD***
