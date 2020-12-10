@@ -1,8 +1,11 @@
 Welcome to The Emotional Gargoyles' "Math Games" software!
 
-Sample Teacher login:
+Sample Teacher login: 
+username: hermione
+password: pwis123
 
 Sample Student login:
+
 
 
 >FOR TEACHERS:

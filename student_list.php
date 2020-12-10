@@ -188,48 +188,49 @@ var dropDown = document.getElementById("dropDown");
 var select = document.getElementById("select");
 
 var students;
-var billyData = ["Billy", //***STAND IN FOR ACTUAL DATA FROM A STUDENT***
+// var billyData = ["Billy", //***STAND IN FOR ACTUAL DATA FROM A STUDENT***
                                     
-                    //right, wrong for carEasy, carMed, and carHard
-                    6, 10,
-                    8, 9,
-                    10, 15,
+//                     //right, wrong for carEasy, carMed, and carHard
+//                     6, 10,
+//                     8, 9,
+//                     10, 15,
 
-                    //right, wrong for coinEasy, coinMed, and coinHard
-                    1, 4,
-                    12, 16,
-                    8, 8,
+//                     //right, wrong for coinEasy, coinMed, and coinHard
+//                     1, 4,
+//                     12, 16,
+//                     8, 8,
                             
-                    //right, wrong for lineEasy, lineMed, and lineHard
-                    9, 10,
-                    10, 12,
-                    6, 9];
+//                     //right, wrong for lineEasy, lineMed, and lineHard
+//                     9, 10,
+//                     10, 12,
+//                     6, 9];
 
-var sueData = ["Sue", //***STAND IN FOR ACTUAL DATA FROM A STUDENT***
+// var sueData = ["Sue", //***STAND IN FOR ACTUAL DATA FROM A STUDENT***
                                     
-                //right, wrong for carEasy, carMed, and carHard
-                5, 12,
-                10, 10,
-                14, 15,
+//                 //right, wrong for carEasy, carMed, and carHard
+//                 5, 12,
+//                 10, 10,
+//                 14, 15,
                 
-                //right, wrong for coinEasy, coinMed, and coinHard
-                4, 6,
-                10, 20,
-                7, 10,
+//                 //right, wrong for coinEasy, coinMed, and coinHard
+//                 4, 6,
+//                 10, 20,
+//                 7, 10,
                                             
-                //right, wrong for lineEasy, lineMed, and lineHard
-                10, 11,
-                5, 6,
-                2, 4];
+//                 //right, wrong for lineEasy, lineMed, and lineHard
+//                 10, 11,
+//                 5, 6,
+//                 2, 4];
 var studentList= <?php echo json_encode($studentList);?>;
 
-for (var key in studentList) {
-    console.log(key);
-}
+// for (var key in studentList) {
+//     console.log(key);
+//     console.log(studentList[key])
+// }
 	
 	
 	
-studentList = [billyData, sueData]//***THIS SHOULD GET STUDENT NAMES LINKED TO TEACHER INSTEAD***
+// studentList = [billyData, sueData]//***THIS SHOULD GET STUDENT NAMES LINKED TO TEACHER INSTEAD***
 function main(){
     createStudentElements()
     setDropDownListeners();
@@ -238,12 +239,20 @@ function main(){
 function createStudentElements(){
     var element;
     var location = document.querySelector('#dropDown');
-    for(i=0; i<studentList.length; i++){
-        element = document.createElement("BUTTON");
-        element.className = "student";
-        element.innerHTML = userData[i][0];
-        location.appendChild(element);
-    }
+    for (var key in studentList) {
+    console.log(key);
+    console.log(studentList[key])
+    element = document.createElement("BUTTON");
+    element.className = "student";
+    element.innerHTML = studentList[key]["username"];
+    location.appendChild(element);
+}
+    // for(i=0; i<studentList.length; i++){
+    //     element = document.createElement("BUTTON");
+    //     element.className = "student";
+    //     element.innerHTML = userData[i][0];
+    //     location.appendChild(element);
+    // }
     students = document.getElementsByClassName("student");
 }
 
