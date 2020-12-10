@@ -172,7 +172,7 @@ h2{
     </div>
 
     <div class="stats" id="line">
-        <h1 class="statTitle">Fine Line Stats<h1>
+        <h1 class="statTitle">Number Pirate Stats<h1>
         <h1 class="statText" id="lineEasy">Easy:</h1>
         <h1 class="statText" id="lineMed">Medium:</h1>
         <h1 class="statText" id="lineHard">Hard:</h1>
@@ -187,72 +187,26 @@ h2{
 var dropDown = document.getElementById("dropDown");
 var select = document.getElementById("select");
 
-var students;
-// var billyData = ["Billy", //***STAND IN FOR ACTUAL DATA FROM A STUDENT***
-                                    
-//                     //right, wrong for carEasy, carMed, and carHard
-//                     6, 10,
-//                     8, 9,
-//                     10, 15,
-
-//                     //right, wrong for coinEasy, coinMed, and coinHard
-//                     1, 4,
-//                     12, 16,
-//                     8, 8,
-                            
-//                     //right, wrong for lineEasy, lineMed, and lineHard
-//                     9, 10,
-//                     10, 12,
-//                     6, 9];
-
-// var sueData = ["Sue", //***STAND IN FOR ACTUAL DATA FROM A STUDENT***
-                                    
-//                 //right, wrong for carEasy, carMed, and carHard
-//                 5, 12,
-//                 10, 10,
-//                 14, 15,
-                
-//                 //right, wrong for coinEasy, coinMed, and coinHard
-//                 4, 6,
-//                 10, 20,
-//                 7, 10,
-                                            
-//                 //right, wrong for lineEasy, lineMed, and lineHard
-//                 10, 11,
-//                 5, 6,
-//                 2, 4];
-var studentList= <?php echo json_encode($studentList);?>;
-
-// for (var key in studentList) {
-//     console.log(key);
-//     console.log(studentList[key])
-// }
+var students;//array of html elements for the student name buttons in dropdown menu
+var studentList= <?php echo json_encode($studentList);?>;//JSON list of students and info
 	
-	
-	
-// studentList = [billyData, sueData]//***THIS SHOULD GET STUDENT NAMES LINKED TO TEACHER INSTEAD***
 function main(){
     createStudentElements()
     setDropDownListeners();
 }
 
+/**
+ * Creates HTML buttons for each of the students assigned to the current teacher
+*/
 function createStudentElements(){
     var element;
     var location = document.querySelector('#dropDown');
-    for (var key in studentList) {
-    console.log(key);
-    console.log(studentList[key])
-    element = document.createElement("BUTTON");
-    element.className = "student";
-    element.innerHTML = studentList[key]["username"];
-    location.appendChild(element);
-}
-    // for(i=0; i<studentList.length; i++){
-    //     element = document.createElement("BUTTON");
-    //     element.className = "student";
-    //     element.innerHTML = userData[i][0];
-    //     location.appendChild(element);
-    // }
+    for (var key in studentList) {//iterate through students and add buttons to the dropdown menu
+        element = document.createElement("BUTTON");
+        element.className = "student";
+        element.innerHTML = studentList[key]["username"];
+        location.appendChild(element);
+    }
     students = document.getElementsByClassName("student");
 }
 
@@ -270,7 +224,6 @@ function setDropDownListeners(){
     for(var i=0; i < students.length; i++){
         name = students[i].textContent;
         students[i].addEventListener("click", setSelected.bind(this, name))
-
     }
 }
 
@@ -279,26 +232,18 @@ function setDropDownListeners(){
 */
 function setSelected(name){
     select.innerHTML = name;
-    console.log(name);
-    // USE NAME TO GET OTHER INFO FROM JSON FILE
-    // USING SAMPLE INFO HERE
-    var currentData;
-    for(i=0; i < userData.length; i++){
-        if(userData[i][0] == name){
-            currentData = userData[i];//get the array for selected user
-        }
-    }
 
+    // USE NAME TO GET OTHER INFO FROM JSON FILE
     //alter the innerHTML of the stat blocks to include user data
-    document.getElementById("carEasy").innerHTML = "Easy: "+currentData[11]+"/"+(currentData[11]+currentData[12]);
-    document.getElementById("carMed").innerHTML = "Medium: "+currentData[13]+"/"+(currentData[13]+currentData[14]);
-    document.getElementById("carHard").innerHTML = "Hard: "+currentData[15]+"/"+(currentData[15]+currentData[16]);
-    document.getElementById("coinEasy").innerHTML = "Easy: "+currentData[4]+"/"+(currentData[4]+currentData[5]);
-    document.getElementById("coinMed").innerHTML = "Medium: "+currentData[6]+"/"+(currentData[6]+currentData[7]);
-    document.getElementById("coinHard").innerHTML = "Hard: "+currentData[8]+"/"+(currentData[8]+currentData[9]);
-    document.getElementById("lineEasy").innerHTML = "Easy: "+currentData[18]+"/"+(currentData[18]+currentData[19]);
-    document.getElementById("lineMed").innerHTML = "Medium: "+currentData[20]+"/"+(currentData[20]+currentData[21]);
-    document.getElementById("lineHard").innerHTML = "Hard: "+currentData[22]+"/"+(currentData[22]+currentData[23]);    
+    document.getElementById("carEasy").innerHTML = "Easy: "+studentList[name]["car1W"]+"/"+(studentList[name]["car1W"]+studentList[name]["car1L"]);
+    document.getElementById("carMed").innerHTML = "Medium: "+studentList[name]["car2W"]+"/"+(studentList[name]["car2W"]+studentList[name]["car2L"]);
+    document.getElementById("carHard").innerHTML = "Hard: "+studentList[name]["car3W"]+"/"+(studentList[name]["car3W"]+studentList[name]["car3L"]);
+    document.getElementById("coinEasy").innerHTML = "Easy: "+studentList[name]["coin1W"]+"/"+(studentList[name]["coin1W"]+studentList[name]["coin1L"]);
+    document.getElementById("coinMed").innerHTML = "Medium: "+studentList[name]["coin2W"]+"/"+(studentList[name]["coin2W"]+studentList[name]["coin2L"]);
+    document.getElementById("coinHard").innerHTML = "Hard: "+studentList[name]["coin3W"]+"/"+(studentList[name]["coin3W"]+studentList[name]["coin3L"]);
+    document.getElementById("lineEasy").innerHTML = "Easy: "+studentList[name]["line1W"]+"/"+(studentList[name]["line1W"]+studentList[name]["line1L"]);
+    document.getElementById("lineMed").innerHTML = "Medium: "+studentList[name]["line2W"]+"/"+(studentList[name]["line2W"]+studentList[name]["line2L"]);
+    document.getElementById("lineHard").innerHTML = "Hard: "+studentList[name]["line3W"]+"/"+(studentList[name]["line3W"]+studentList[name]["line3L"]);
 }
 
 /**
