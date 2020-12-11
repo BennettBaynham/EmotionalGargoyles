@@ -139,7 +139,7 @@ function endGame(){
           url: '../my_functions.php',
           data: data_arr
     })
-	document.getElementById("amountRight").innerHTML =  numRight+" out of "+(numRight + numWrong)+" correct";
+	document.getElementById("amountRight").innerHTML =  numRight + " out of " + (numRight + numWrong)+" correct";
     //show menu
     document.getElementById("endMenu").style.display = "unset";
     //if user selects "play again", reload the page
@@ -229,10 +229,12 @@ function moveDown(){
 function space(){
 	if(Math.round(currentNumber) == Math.round(targetNumber)){
 		treasureFound = true;
+		numRight +=1;
+  		console.log("numRight: " + numRight);
 	}else{
     alert('No Treasure, sorry');
     numWrong++;
-    console.log(getNumWrong())
+    console.log("numWrong: " + numWrong);
 	}
 	draw();
 }
@@ -255,8 +257,8 @@ function drawBackground() {
 }
 function drawIslands(){
 	var i;
-	for(i = 0; i < 11; i++){
-		if((Math.round((currentNumber + 5 - i)) <= maxNumber) && (Math.round((currentNumber + 5 - i)) >= (minNumber))){
+	for(i = 0; i < maxNumber; i++){
+		if((Math.round((currentNumber + 5 - i)) <= maxNumber - 1) && (Math.round((currentNumber + 5 - i)) >= (minNumber))){
 			ctx.drawImage(island,(300 *  (Math.round(currentNumber) - currentNumber)) + (1770 - (300 * i)), 280);
 			//ctx.fillStyle = '#FFFF00';
 			//ctx.fillRect((300 *  (Math.round(currentNumber) - currentNumber)) + (1770 - (300 * i)), 300,150,110);
@@ -286,9 +288,7 @@ function win(){
 	ctx.fillStyle = '#CFAF3F';
 	ctx.fillRect(0, 0, 1400, 600);
 	ctx.fillStyle = '#000000';
-  ctx.fillText('You Found the Treasure!!!', 700, 300);
-  numRight +=1;
-
+  	ctx.fillText('You Found the Treasure!!!', 700, 300);
 }
 function reset(){
 	currentNumber = 0;
@@ -326,29 +326,70 @@ function reset(){
 				}
 			break;
 		case 3:
-			problem = "" + targetNumber;
-			var num1 = 0;
-			var num2 = 0;
-			var i;
-			for(i = 0; i < maxNumber; i++){
-				do{
-				num1 = Math.round(Math.random() * 10 * maxNumber) - Math.round(Math.random() * 10 * maxNumber);
-				num2 = Math.round(Math.random() * 10 * maxNumber) - Math.round(Math.random() * 10 * maxNumber);
-				}while(num1 + num2 == targetNumber);
-				if(num2 > 0){
-					answers[i] = num1 + " + " + num2;
-				}else{
-					answers[i] = num1 + " - " + num2;
-				}
+			var num = 0;
+			var tempNum = 0;
+			var targetDigit = Math.floor(Math.random() * 10);
+			var a;
+			for(a = 0; a < maxNumber; a++){
+				answers[a] = 0;
 			}
-			num1 = Math.round(Math.random() * 10 * maxNumber) - Math.round(Math.random() * 10 * maxNumber);
-			num2 = targetNumber - num1;
-			if(num2 > 0){
-					answers[targetNumber] = num1 + " + " + num2;
-				}else{
-					answers[targetNumber] = num1 + " - " + num2;
-				}
-			break;
+			switch(Math.ceil(Math.random() * 3)){
+				case 1: 
+					problem = targetDigit + " in the 100s place";
+					var i;
+					for(i = 0; i < maxNumber; i++){
+						var j;
+						for(j = 0; j < 3; j++){
+							if(i == targetNumber && j == 0){
+								answers[i] = answers[i] * 10 + targetDigit;
+							}else{
+								do{
+									tempNum = Math.floor(Math.random() * 10);
+								}while(tempNum == targetDigit);
+								answers[i] = answers[i] * 10 + tempNum;
+							}
+						}
+					}
+					break;
+				case 2:
+					problem = targetDigit + " in the 10s place";
+					var i;
+					for(i = 0; i < maxNumber; i++){
+						var j;
+						for(j = 0; j < 3; j++){
+							if(i == targetNumber && j == 1){
+								answers[i] = (answers[i] * 10) + targetDigit;
+							}else{
+								do{
+									tempNum = Math.floor(Math.random() * 10);
+								}while(tempNum == targetDigit);
+								answers[i] = answers[i] * 10 + tempNum;
+							}
+						}
+					}
+					break;
+				case 3:
+					problem = targetDigit + " in the 1s place";
+					var i;
+					for(i = 0; i < maxNumber; i++){
+						var j;
+						for(j = 0; j < 3; j++){
+							if(i == targetNumber && j == 2){
+								answers[i] = answers[i] * 10 + targetDigit;
+							}else{
+								do{
+									tempNum = Math.floor(Math.random() * 10);
+								}while(tempNum == targetDigit);
+								answers[i] = answers[i] * 10 + tempNum;
+							}
+						}
+						
+					}
+					break;
+			}
+
+			
+			
 			
 	}
 	treasureFound = false;
