@@ -11,6 +11,5 @@ include_once "my_functions.php";
     }
 
 //FOR NOW THIS JUST SENDS USER TO TEACHER MENU
-$user_type = 2;
-redirect($user_type);
+redirect();
 ?>
