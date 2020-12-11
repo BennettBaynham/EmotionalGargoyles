@@ -5,7 +5,8 @@ username: hermione
 password: pwis123
 
 Sample Student login:
-
+username: Ron
+password: ron2012forever
 
 
 >FOR TEACHERS:
