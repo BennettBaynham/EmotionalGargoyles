@@ -34,7 +34,11 @@
 				                        echo $_SESSION['u_name'];	
 			                        }else{
 				                        header("Location: login.php");
-			                        }
+                                    }
+                                    $users = getData("user.json");
+                                    if(!array_key_exists($_SESSION['u_name'], $users)){//if there is a teacher with this id
+                                        header("Location: menus/student_menu.php");
+                                    }
 		                        ?>
                                 <p>Teacher</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                             </div>
