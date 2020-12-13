@@ -49,7 +49,7 @@
                             <li><a href="menu_redirector.php">Home</a></li>
                             <li style="float:right"><a href="login.php">Log Out</a></li>
                             <li style="float:right"><a class="active" href="userinfo.php">Profile</a></li>
-                            <li style="float:left"><a href="basicLessons.php">Basic Lessons</a></li>
+                            <li style="float:left"><a href="basicLessons.html">Basic Lessons</a></li>
                           </ul>
                         <div class="col-sm-8">
                             <div class="card-block">
